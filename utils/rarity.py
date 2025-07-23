@@ -43,7 +43,7 @@ def getHighRarityCount():
         )
 
         density = high_pixel_count / len(valueImage.getdata())
-        print(f"img: {img}, density: {density}")
+        # print(f"img: {img}, density: {density}")
         if density > 0.02:
             high_count += 1
              
@@ -51,7 +51,7 @@ def getHighRarityCount():
 
 
 
-cropValueBoxes()
+# cropValueBoxes()
 # high = getHighRarityCount()
 # print(high)
 

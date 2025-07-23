@@ -67,6 +67,6 @@ def cropEnhanceRead():
     rolls = readImage()
     return rolls
 
-cropRollBoxes()
+# cropRollBoxes()
 # enhanceBoxImage()
 # readImage()

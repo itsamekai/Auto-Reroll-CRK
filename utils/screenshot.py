@@ -24,7 +24,7 @@ def findAndResize(title):
 def screenshotRoll(win):
     # time.sleep(0.05)
     img = ag.screenshot(region=(win.left + 400, win.top + 455, 275, 335))
-    img.save("roll.jpeg")
+    img.save(CONST_ROLL_PATH)
 
 
 # cropped size is 275 x 335.
@@ -33,9 +33,9 @@ def screenshotValues(win):
     img.save(CONST_VALUE_PATH)
 
 
-win = findAndResize('CookieRun')
+# win = findAndResize('CookieRun')
 # screenshotRoll(win)
-screenshotValues(win)
+# screenshotValues(win)
 
 
 

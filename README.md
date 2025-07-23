@@ -21,3 +21,10 @@ fixed screenshotting
 
 - automation for clicking - pyautogui https://pypi.org/project/PyGetWindow/
 - possible OCR for numbers - pytesseract https://pypi.org/project/pytesseract/
+
+10, 15, 275, 70),
+
+0, 20, 275, 75
+
++10 -5 0 -5
+

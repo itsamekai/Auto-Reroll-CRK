@@ -4,11 +4,11 @@ import pyautogui as ag
 CONST_ORANGE_RGBA = (255, 120, 0) # orange RGBA for orange rarity
 CONST_PURPLE_RGBA = (184, 61, 255) # purple RGBA for purple rarity
 CONST_VALUE_PATH = "./images/values.jpeg"
-CONST_REGIONS = [
-    (0, 0, 105, 75), # box 1 for value
-    (0, 80, 105, 165), # box 2 for value
-    (0, 168, 105, 253), # box 3 for value
-    (0, 250, 105, 330) # box 4 for value
+CONST_VALUE_REGIONS = [
+    (0, 20, 100, 60), # box 1 for value
+    (0, 105, 100, 140), # box 2 for value
+    (0, 190, 100, 225), # box 3 for value
+    (0, 270, 100, 310) # box 4 for value
 ]
 
 CONST_VALUE_BOXES_PATH = [
@@ -17,11 +17,10 @@ CONST_VALUE_BOXES_PATH = [
     ]
 
 
-
-
+# crop the value image into 4 different boxes with their own respective values.
 def cropValueBoxes(path=CONST_VALUE_PATH):
     img = Image.open(path)
-    for i, box in enumerate(CONST_REGIONS):
+    for i, box in enumerate(CONST_VALUE_REGIONS):
         cropped = img.crop(box)
         cropped.save(f"./images/value_box_{i+1}.png")
 
@@ -48,12 +47,13 @@ def getHighRarityCount():
         if density > 0.02:
             high_count += 1
              
-
     return high_count
 
+
+
 cropValueBoxes()
-high = getHighRarityCount()
-print(high)
+# high = getHighRarityCount()
+# print(high)
 
 
 

@@ -19,5 +19,5 @@ fixed screenshotting
 4) return accordingly. or reroll again.
 
 
-automation for clicking - pyautogui https://pypi.org/project/PyGetWindow/
-possible OCR for numbers - pytesseract https://pypi.org/project/pytesseract/
+- automation for clicking - pyautogui https://pypi.org/project/PyGetWindow/
+- possible OCR for numbers - pytesseract https://pypi.org/project/pytesseract/

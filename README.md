@@ -1,30 +1,12 @@
-1. pixel detection for static words. add per stat.
-2. check 1) first. if it passes what we are checking for, check for color to determine roll rarity
+# Reroll Procedure
+1) Resize windows -> automate click.
+2) Screenshot roll values, crop them and calculate its color density.
+3) If color density above matches, screenshot rolls, crop and read.
+4) stop if matches n number of lines needed.
 
-
-fixed screenshotting
-1. force resize of the app to a specific resolution.
-	- make use of pygetwindow ; https://pypi.org/project/PyGetWindow/
-	
-
-2. click reroll. 
-
-3. set up pixel matching / detection 
-	- check for stat -> check number colors -> check actual numbers if exceed
-	1) manually find pixel coordinates for:
-		- stat specific pixels (cd, bypass, etc)
-		- colors at number
-		- OCR? if not pixel density for numbers.
-
-4) return accordingly. or reroll again.
-
-
-- automation for clicking - pyautogui https://pypi.org/project/PyGetWindow/
-- possible OCR for numbers - pytesseract https://pypi.org/project/pytesseract/
-
-10, 15, 275, 70),
-
-0, 20, 275, 75
-
-+10 -5 0 -5
-
+## TO DO
+* Read Numbers (not that important, but nice to have?)
+* Improve runtime per roll
+* Add support for tainted biscuits.
+* Add support for other elemental rolls.
+* Check positional values to ensure that n number of rolls matches the roll we _actually_ want.

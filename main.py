@@ -30,7 +30,7 @@ def task_loop(roll_type, line_count):
     
 
     # init crk window from gpg
-    crkWin = findAndResize('CookieRun')
+    crkWin = findAndResize('CookieRun') 
     while running:
         start = time.time()
         if not crkWin:
@@ -41,19 +41,19 @@ def task_loop(roll_type, line_count):
             time.sleep(1.14)
             screenshotValues(crkWin)
             cropValueBoxes()
-            high_count = getHighRarityCount()
+            high_count, pos = getHighRarityCount()
             
             # check if the amount of purple / orange rolls is >= the no. of lines picked
             if (high_count >= int(line_count)):
                 screenshotRoll(crkWin)
-                rolls = cropEnhanceRead()
-                if rolls.count(roll_type) >= int(line_count):
+                rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count)
+                if rollResult:
                     elapsed = round(time.time() - start, 2)
                     log(f"Successfully rolled. Total: {counter} rolls done. {elapsed} time taken.")
                     break
                 else:
                     elapsed = round(time.time() - start, 2)
-                    log(f"Roll {counter}: {high_count} high values but wrong rolls - {rolls}. {elapsed} time taken.")
+                    log(f"Roll {counter}: {high_count} high values but wrong rolls - {rolled}. {elapsed} time taken.")
                     counter+= 1
             else:
                 elapsed = round(time.time() - start, 2)

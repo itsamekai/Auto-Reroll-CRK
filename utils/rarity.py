@@ -33,7 +33,9 @@ def color_distance(c1, c2):
 def getHighRarityCount(): 
     # holds the no. of high rolls   
     high_count = 0
-    for img in CONST_VALUE_BOXES_PATH:
+    pos = []
+    
+    for i, img in enumerate(CONST_VALUE_BOXES_PATH):
         valueImage = Image.open(img).convert("RGBA")    
         pixels = list(valueImage.getdata())
         
@@ -46,13 +48,15 @@ def getHighRarityCount():
         # print(f"img: {img}, density: {density}")
         if density > 0.02:
             high_count += 1
+            pos.append(i)
              
-    return high_count
+    return high_count, pos
 
 
 
 # cropValueBoxes()
-# high = getHighRarityCount()
+# high, pos = getHighRarityCount()
+# print(high, pos)
 # print(high)
 
 

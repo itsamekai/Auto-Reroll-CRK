@@ -11,6 +11,7 @@
 4) stop if matches n number of lines needed.
 
 ## TO DO
+* refactor UI out of main for better clarity
 * Read Numbers (not that important, but nice to have?) 
 * Improve runtime per roll - needs more optimisation atm
     * current reads at 1.3s~
@@ -18,3 +19,20 @@
 * Add support for tainted biscuits.
 * ~~Add support for other elemental rolls.~~
 * ~~Check positional values to ensure that n number of rolls matches the roll we _actually_ want.~~ 
+
+## Development
+
+1. Create a venv and install the requirements:
+```
+bash
+py -m venv venv
+source venv/bin/activate # or .\venv\Scripts\activate on Windows
+pip install -r requirements.txt
+```
+
+2. Create an image folder in root directory
+
+3. run main.py to launch UI.
+```
+py main.py
+```

@@ -7,6 +7,7 @@ def get_tesseract_path():
     else:
         return os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Tesseract-OCR', 'tesseract.exe'))
 
+
 def get_writable_image_dir():
 
     if getattr(sys, 'frozen', False):

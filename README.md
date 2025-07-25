@@ -11,8 +11,10 @@
 4) stop if matches n number of lines needed.
 
 ## TO DO
-* Read Numbers (not that important, but nice to have?)
-* Improve runtime per roll
+* Read Numbers (not that important, but nice to have?) 
+* Improve runtime per roll - needs more optimisation atm
+    * current reads at 1.3s~
+    * current ocr read at 2.2s~
 * Add support for tainted biscuits.
-* Add support for other elemental rolls.
-* Check positional values to ensure that n number of rolls matches the roll we _actually_ want. 
+* ~~Add support for other elemental rolls.~~
+* ~~Check positional values to ensure that n number of rolls matches the roll we _actually_ want.~~ 

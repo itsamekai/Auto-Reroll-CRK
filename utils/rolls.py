@@ -93,8 +93,3 @@ def readImage(pos, rollType, line_count):
 def cropEnhanceRead(pos, rollType, lineCount):
     cropRollBoxes()
     return enhanceBoxImageAndRead(pos, rollType, lineCount)
-    # return readImage(pos, rollType, lineCount)
-
-# cropRollBoxes()
-# enhanceBoxImage()
-# readImage()

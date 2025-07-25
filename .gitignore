@@ -8,6 +8,7 @@ images/
 # PyInstaller stuff
 build/
 dist/
+AutoReroll.spec
 main.spec
 pyinstaller
 

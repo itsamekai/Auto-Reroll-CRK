@@ -7,8 +7,6 @@ from tkinter import ttk
 import threading
 import time
 import keyboard
-import pytesseract
-import os, sys
 
 
 ROLL_TYPES = [
@@ -20,7 +18,10 @@ ROLL_TYPES = [
 
 LINE_COUNTS = ['2', '3', '4']
 
+CONST_RESET_BUTTON_PATH = resource_path("template/reset_button.png")
+
 running = False
+
 
 def log(msg):
     log_box.config(state='normal')
@@ -29,20 +30,28 @@ def log(msg):
     log_box.config(state='disabled')
 
 def task_loop(roll_type, line_count):
-    global running
+    global running  
     counter = 1  
     log("Starting auto reroll.")
     
 
     # init crk window from gpg
-    crkWin = findAndResize('CookieRun') 
+    crkWin = findAndResize('CookieRun')
+    # get the reset button location coordinates
+    crkImage = screenshotWindow(crkWin)
+    resetLoc = findResetButton(CONST_RESET_BUTTON_PATH, crkImage)
+    print(f"reset button location: {resetLoc}") 
+
     while running:
         start = time.time()
         if not crkWin:
             log("CRK window not found. Open GPG.")
             break
         else:
-            moveAndClick(crkWin) # start click
+            if not isinstance(resetLoc, tuple):
+                log("Reset button not found. Check UI.")
+                break
+            moveAndClick(crkWin, resetLoc) # start click
             time.sleep(1.14)
             screenshotValues(crkWin)
             cropValueBoxes()
@@ -67,6 +76,7 @@ def task_loop(roll_type, line_count):
             
 
     log("auto reroll stopped.")
+    running = False
 
 def on_start():
     global running

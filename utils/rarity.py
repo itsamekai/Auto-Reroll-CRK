@@ -1,5 +1,4 @@
 from PIL import Image
-import pyautogui as ag
 from utils.paths import *
 
 CONST_ORANGE_RGBA = (255, 120, 0) # orange RGBA for orange rarity
@@ -53,11 +52,6 @@ def getHighRarityCount():
     return high_count, pos
 
 
-
-# cropValueBoxes()
-# high, pos = getHighRarityCount()
-# print(high, pos)
-# print(high)
 
 
 

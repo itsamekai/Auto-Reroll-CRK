@@ -89,7 +89,7 @@ def listen_for_esc():
 
 
 app = tk.Tk()
-app.title("Auto Reroll")
+app.title("Auto Reroll by Kai")
 
 # dropdown for roll selector & no. of lines
 tk.Label(app, text="Roll Type:").grid(row=0, column=0, padx=10, pady=5)
@@ -116,6 +116,9 @@ log_box.grid(row=4, column=0, columnspan=2, padx=10, pady=5)
 scrollbar = tk.Scrollbar(app, command=log_box.yview)
 log_box.config(yscrollcommand=scrollbar.set)
 scrollbar.grid(row=4, column=2, sticky='ns')
+
+tk.Label(app, text="done by: Kai | discord: @boonkai", font=("Arial", 11)).grid(row=5, column=0, columnspan=2, sticky='w', padx=10)
+tk.Label(app, text="discord: discord.gg/creamery", font=("Arial", 11)).grid(row=6, column=0, sticky='w', padx=10)
 
 # keyboard listener to exit
 threading.Thread(target=listen_for_esc, daemon=True).start()

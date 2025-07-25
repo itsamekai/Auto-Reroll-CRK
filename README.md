@@ -15,4 +15,4 @@
 * Improve runtime per roll
 * Add support for tainted biscuits.
 * Add support for other elemental rolls.
-* Check positional values to ensure that n number of rolls matches the roll we _actually_ want.
+* Check positional values to ensure that n number of rolls matches the roll we _actually_ want. 

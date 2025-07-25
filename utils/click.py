@@ -5,7 +5,7 @@ import pyautogui as ag
 def moveAndClick(crkWindow):
     abs_x = crkWindow.left + 850
     abs_y = crkWindow.top + 900
-    ag.moveTo(abs_x, abs_y, 0.5)
+    ag.moveTo(abs_x, abs_y)
     ag.click()
 
     

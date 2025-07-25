@@ -7,14 +7,19 @@ from tkinter import ttk
 import threading
 import time
 import keyboard
+import pytesseract
+import os, sys
 
 
 ROLL_TYPES = [
     'AmplifyBuff', 'DMGResistBypass', 'DMGResist', 'CRIT%', 'ATK',
-    'HP', 'DEF', 'ATKSPD', 'Cooldown', 'DebuffResist', 'DarkDMG'
+    'HP', 'DEF', 'ATKSPD', 'Cooldown', 'DebuffResist', 'DarkDMG',
+    'IceDMG', 'SteelDMG', 'PoisonDMG', 'LightDMG', 'ElecDMG', 'FireDMG',
+    'EarthDMG'
 ]
 
 LINE_COUNTS = ['2', '3', '4']
+
 running = False
 
 def log(msg):

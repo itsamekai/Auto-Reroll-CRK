@@ -1,4 +1,15 @@
 venv/
 utils/__pycache__
 __pycache__
+
+# OCR Images
 images/
+
+# PyInstaller stuff
+build/
+dist/
+main.spec
+pyinstaller
+
+# tesseract
+Tesseract-OCR/

@@ -13,17 +13,20 @@ CONST_ROLL_REGIONS = [
 ]
 
 # crop initial roll image into 4 boxes for each roll.
-def cropRollBoxes(rollImg):
+def cropRollBoxes(rollImg, tainted):
     croppedBoxes = []
-    for box in CONST_ROLL_REGIONS:
-        croppedBoxes.append(rollImg.crop(box))
+    if tainted:
+        for box in CONST_ROLL_REGIONS[1:]:
+            croppedBoxes.append(rollImg.crop(box))
+    else:
+        for box in CONST_ROLL_REGIONS:
+            croppedBoxes.append(rollImg.crop(box))
     return croppedBoxes
 
 
 # do preprocessing for OCR.
 def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg):
     print("enhancing image \n")
-    counter = 0
     rolls = []
     rollPos = []
     custom_config = r'--oem 3 --psm 6 -c tessedit_char_whitelist=%ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
@@ -54,6 +57,6 @@ def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg):
         return False, rolls
 
 
-def cropEnhanceRead(pos, rollType, lineCount, value_screenshot):
-    cropped = cropRollBoxes(value_screenshot)
+def cropEnhanceRead(pos, rollType, lineCount, value_screenshot, tainted):
+    cropped = cropRollBoxes(value_screenshot, tainted)
     return enhanceBoxImageAndRead(pos, rollType, lineCount, cropped)

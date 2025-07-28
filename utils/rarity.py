@@ -13,10 +13,15 @@ CONST_VALUE_REGIONS = [
 
 
 # crop the value image into 4 different boxes with their own respective values.
-def cropValueBoxes(valueImg):
+def cropValueBoxes(valueImg, tainted):
     croppedBoxes = []
-    for box in CONST_VALUE_REGIONS:
-        croppedBoxes.append(valueImg.crop(box))
+    if tainted: # if tainted biscuits, start from n=1 since 1st roll is fixed.
+        for box in CONST_VALUE_REGIONS[1:]:
+            croppedBoxes.append(valueImg.crop(box))
+    else:
+        for box in CONST_VALUE_REGIONS:
+            croppedBoxes.append(valueImg.crop(box))
+            
     return croppedBoxes
 
 

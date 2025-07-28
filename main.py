@@ -29,11 +29,10 @@ def log(msg):
     log_box.see(tk.END)
     log_box.config(state='disabled')
 
-def task_loop(roll_type, line_count):
+def task_loop(roll_type, line_count, tainted_bool):
     global running  
     counter = 1  
     log("Starting auto reroll.")
-    
 
     # init crk window from gpg
     crkWin = findAndResize('CookieRun')
@@ -54,16 +53,13 @@ def task_loop(roll_type, line_count):
             moveAndClick(crkWin, resetLoc) # start click
             time.sleep(1.1)
             value_screenshot = screenshotValues(crkWin)
-            crop_time = time.time()
-            cropped = cropValueBoxes(value_screenshot)
+            cropped = cropValueBoxes(value_screenshot, tainted_bool)
             high_count, pos = getHighRarityCount(cropped)
-            crop_elapsed = time.time() - crop_time
-            print(f"elapsed to screenshot and save: {crop_elapsed}")
             
             # check if the amount of purple / orange rolls is >= the no. of lines picked
             if (high_count >= int(line_count)):
                 roll_screenshot = screenshotRoll(crkWin)
-                rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count, roll_screenshot)
+                rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count, roll_screenshot, tainted_bool)
                 if rollResult:
                     elapsed = round(time.time() - start, 2)
                     log(f"Successfully rolled. Total: {counter} rolls done. {elapsed} time taken.")
@@ -88,9 +84,15 @@ def on_start():
         return
 
     roll_type = roll_type_var.get()
-    line_count = line_count_var.get() 
+    line_count = line_count_var.get()
+    tainted_bool = tainted_bool_var.get() == "Enabled"
+
+    if tainted_bool and int(line_count) >3:
+        log("Tainted only allows a line count of below 4. Stopping.")
+        return
+
     running = True
-    threading.Thread(target=task_loop, args=(roll_type, line_count), daemon=True).start()
+    threading.Thread(target=task_loop, args=(roll_type, line_count, tainted_bool), daemon=True).start()
 
 def listen_for_esc():
     global running
@@ -117,21 +119,28 @@ line_dropdown = ttk.Combobox(app, textvariable=line_count_var, values=LINE_COUNT
 line_dropdown.grid(row=1, column=1, padx=10, pady=5)
 line_dropdown.set(LINE_COUNTS[0])
 
+tk.Label(app, text="Tainted Beascuit?").grid(row=2, column=0, padx=10, pady=5)
+tainted_bool_var = tk.StringVar(value="Disabled")
+tainted_dropdown = ttk.Combobox(app, textvariable=tainted_bool_var, values=["Enabled", "Disabled"], state="readonly")
+tainted_dropdown.grid(row=2, column=1, padx=10, pady=5)
+tainted_dropdown.set("Disabled")
+
+
 # start button
 submit_btn = tk.Button(app, text="Start", command=on_start)
-submit_btn.grid(row=2, column=0, columnspan=2, pady=10)
+submit_btn.grid(row=3, column=0, columnspan=2, pady=10)
 
 # log box
-tk.Label(app, text="Log Output:").grid(row=3, column=0, columnspan=2)
+tk.Label(app, text="Log Output:").grid(row=4, column=0, columnspan=2)
 log_box = tk.Text(app, height=12, width=75, state='disabled', wrap='word')
-log_box.grid(row=4, column=0, columnspan=2, padx=10, pady=5)
+log_box.grid(row=5, column=0, columnspan=2, padx=10, pady=5)
 
 scrollbar = tk.Scrollbar(app, command=log_box.yview)
 log_box.config(yscrollcommand=scrollbar.set)
-scrollbar.grid(row=4, column=2, sticky='ns')
+scrollbar.grid(row=5, column=2, sticky='ns')
 
-tk.Label(app, text="done by: Kai | discord: @boonkai", font=("Arial", 11)).grid(row=5, column=0, columnspan=2, sticky='w', padx=10)
-tk.Label(app, text="discord: discord.gg/creamery", font=("Arial", 11)).grid(row=6, column=0, sticky='w', padx=10)
+tk.Label(app, text="done by: Kai | discord: @boonkai", font=("Arial", 11)).grid(row=6, column=0, columnspan=2, sticky='w', padx=10)
+tk.Label(app, text="discord: discord.gg/creamery", font=("Arial", 11)).grid(row=7, column=0, sticky='w', padx=10)
 
 # keyboard listener to exit
 threading.Thread(target=listen_for_esc, daemon=True).start()

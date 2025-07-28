@@ -25,15 +25,15 @@ def findAndResize(title):
 
 # type of roll. CD, ATK, etc.
 def screenshotRoll(win):
-    # time.sleep(0.05)
-    img = ag.screenshot(region=(win.left + 400, win.top + 455, 275, 335))
-    img.save(os.path.join(WRITABLE_IMAGE_DIR, "roll.jpeg"))
+    # ag.screenshot(region=(win.left + 400, win.top + 455, 275, 335)).save(os.path.join(WRITABLE_IMAGE_DIR, "roll.jpeg"))
+    return ag.screenshot(region=(win.left + 400, win.top + 455, 275, 335))
 
 
 # cropped size is 275 x 335.
 def screenshotValues(win):
-    img = ag.screenshot(region=(win.left + 975, win.top + 455, 105, 335))
-    img.save(os.path.join(WRITABLE_IMAGE_DIR, "values.jpeg"))
+    # ag.screenshot(region=(win.left + 975, win.top + 455, 105, 335)).save(os.path.join(WRITABLE_IMAGE_DIR, "roll.jpeg"))
+    return ag.screenshot(region=(win.left + 975, win.top + 455, 105, 335))
+    
 
 
 

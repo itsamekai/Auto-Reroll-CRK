@@ -5,9 +5,6 @@ import pytesseract
 from utils.paths import *
 
 
-
-CONST_ROLL_PATH = os.path.join(WRITABLE_IMAGE_DIR, "roll.jpeg")
-
 CONST_ROLL_REGIONS = [
     (10, 20, 275, 60), # box1 for value
     (10, 105, 275, 140), # box 2 for value
@@ -15,34 +12,23 @@ CONST_ROLL_REGIONS = [
     (10, 275, 275, 310) # box 4 for value
 ]
 
-
-CONST_ORIGINAL_ROLL_BOXES_PATH = [
-    os.path.join(WRITABLE_IMAGE_DIR, f"roll_box_{i+1}.png") for i in range(4)
-]
-
-CONST_PROCESSED_ROLL_BOXES_PATH = [
-    os.path.join(WRITABLE_IMAGE_DIR, f"processed_roll_box_{i+1}.png") for i in range(4)
-]
-
-
 # crop initial roll image into 4 boxes for each roll.
-def cropRollBoxes(path=CONST_ROLL_PATH):
-    print("Cropping roll boxes \n")
-    img = Image.open(path)
-    for i, box in enumerate(CONST_ROLL_REGIONS):
-        cropped = img.crop(box)
-        cropped.save(CONST_ORIGINAL_ROLL_BOXES_PATH[i])
+def cropRollBoxes(rollImg):
+    croppedBoxes = []
+    for box in CONST_ROLL_REGIONS:
+        croppedBoxes.append(rollImg.crop(box))
+    return croppedBoxes
 
 
 # do preprocessing for OCR.
-def enhanceBoxImageAndRead(pos, rollType, line_count):
+def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg):
     print("enhancing image \n")
     counter = 0
     rolls = []
     rollPos = []
     custom_config = r'--oem 3 --psm 6 -c tessedit_char_whitelist=%ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-    for i, img in enumerate(CONST_ORIGINAL_ROLL_BOXES_PATH):
-        pImg = Image.open(img).convert("L") # convert to grayscale.
+    for i, img in enumerate(valueImg):
+        pImg = img.convert("L") # convert to grayscale.
         pImg = ImageEnhance.Contrast(pImg).enhance(2.0) # enhance contrast
         pImg = pImg.resize((pImg.width *2, pImg.height * 2))
         # normalise with openCV
@@ -53,29 +39,7 @@ def enhanceBoxImageAndRead(pos, rollType, line_count):
         final_img = Image.fromarray(norm_img.astype(np.uint8))
         # final_img.save(CONST_PROCESSED_ROLL_BOXES_PATH[i])
         print(f"reading roll {i + 1}:")
-        rolled = pytesseract.image_to_string(Image.open(img), config=custom_config).strip()
-        if rolled == rollType:
-            rollPos.append(i)
-        rolls.append(rolled) # just for clarity to see all rolls
-    
-    print(rolls)
-    print(f"value pos: {pos} -- roll pos: {rollPos}") 
-    # check positional values; pos[] array returns the position of high values.
-    # match the positional values with the positional rolls & check if >= line count (determined by user)
-    if len(set(pos) & set(rollPos)) >= int(line_count):
-        return True, rolls
-    else:
-        return False, rolls
-
-        
-
-def readImage(pos, rollType, line_count):
-    print("reading \n")
-    rolls = []
-    rollPos = []
-    for i, img in enumerate(CONST_PROCESSED_ROLL_BOXES_PATH):
-        custom_config = r'--oem 3 --psm 6 -c tessedit_char_whitelist=%ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-        rolled = pytesseract.image_to_string(Image.open(img), config=custom_config).strip()
+        rolled = pytesseract.image_to_string(img, config=custom_config).strip()
         if rolled == rollType:
             rollPos.append(i)
         rolls.append(rolled) # just for clarity to see all rolls
@@ -90,6 +54,6 @@ def readImage(pos, rollType, line_count):
         return False, rolls
 
 
-def cropEnhanceRead(pos, rollType, lineCount):
-    cropRollBoxes()
-    return enhanceBoxImageAndRead(pos, rollType, lineCount)
+def cropEnhanceRead(pos, rollType, lineCount, value_screenshot):
+    cropped = cropRollBoxes(value_screenshot)
+    return enhanceBoxImageAndRead(pos, rollType, lineCount, cropped)

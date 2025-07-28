@@ -52,15 +52,18 @@ def task_loop(roll_type, line_count):
                 log("Reset button not found. Check UI.")
                 break
             moveAndClick(crkWin, resetLoc) # start click
-            time.sleep(1.14)
-            screenshotValues(crkWin)
-            cropValueBoxes()
-            high_count, pos = getHighRarityCount()
+            time.sleep(1.1)
+            value_screenshot = screenshotValues(crkWin)
+            crop_time = time.time()
+            cropped = cropValueBoxes(value_screenshot)
+            high_count, pos = getHighRarityCount(cropped)
+            crop_elapsed = time.time() - crop_time
+            print(f"elapsed to screenshot and save: {crop_elapsed}")
             
             # check if the amount of purple / orange rolls is >= the no. of lines picked
             if (high_count >= int(line_count)):
-                screenshotRoll(crkWin)
-                rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count)
+                roll_screenshot = screenshotRoll(crkWin)
+                rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count, roll_screenshot)
                 if rollResult:
                     elapsed = round(time.time() - start, 2)
                     log(f"Successfully rolled. Total: {counter} rolls done. {elapsed} time taken.")

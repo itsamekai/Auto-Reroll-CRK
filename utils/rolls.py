@@ -24,25 +24,27 @@ def cropRollBoxes(rollImg, tainted):
     return croppedBoxes
 
 
+def preprocessImage(img):
+    img = img.convert("L")
+    img = ImageEnhance.Contrast(img).enhance(2.0)
+    img = img.resize((img.width * 2, img.height * 2))
+
+    np_img = np.array(img)
+    norm_img = cv2.normalize(np_img, None, 0, 255, cv2.NORM_MINMAX)
+
+    return Image.fromarray(norm_img.astype(np.uint8))
+
+
 # do preprocessing for OCR.
 def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg):
     print("enhancing image \n")
     rolls = []
     rollPos = []
+    processed = [preprocessImage(img) for img in valueImg] # pre-process all cropped images
     custom_config = r'--oem 3 --psm 6 -c tessedit_char_whitelist=%ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-    for i, img in enumerate(valueImg):
-        pImg = img.convert("L") # convert to grayscale.
-        pImg = ImageEnhance.Contrast(pImg).enhance(2.0) # enhance contrast
-        pImg = pImg.resize((pImg.width *2, pImg.height * 2))
-        # normalise with openCV
-        pImg_np = np.array(pImg)
-        norm_img = np.zeros_like(pImg_np)
-        pImg = cv2.normalize(pImg_np, norm_img, 0, 255, cv2.NORM_MINMAX)
-
-        final_img = Image.fromarray(norm_img.astype(np.uint8))
-        # final_img.save(CONST_PROCESSED_ROLL_BOXES_PATH[i])
+    for i, processedImg in enumerate(processed):
         print(f"reading roll {i + 1}:")
-        rolled = pytesseract.image_to_string(img, config=custom_config).strip()
+        rolled = pytesseract.image_to_string(processedImg, config=custom_config).strip()
         if rolled == rollType:
             rollPos.append(i)
         rolls.append(rolled) # just for clarity to see all rolls

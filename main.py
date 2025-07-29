@@ -2,6 +2,12 @@ from utils.rarity import *
 from utils.rolls import *
 from utils.screenshot import *
 from utils.click import *
+from utils.paths import get_tesseract_path
+
+# global tesseract path for build
+import pytesseract
+pytesseract.pytesseract.tesseract_cmd = get_tesseract_path()
+
 import tkinter as tk
 from tkinter import ttk
 import threading
@@ -32,56 +38,65 @@ def log(msg):
 def task_loop(roll_type, line_count, tainted_bool):
     global running  
     counter = 1  
-    log("Starting auto reroll.")
 
     # init crk window from gpg
     crkWin = findAndResize('CookieRun')
-    # get the reset button location coordinates
-    crkImage = screenshotWindow(crkWin)
-    resetLoc = findResetButton(CONST_RESET_BUTTON_PATH, crkImage)
-    print(f"reset button location: {resetLoc}") 
+    if not crkWin:
+        log("CRK window not found. Open GPG.")
+        running = False
+    else:
+        # get the reset button location coordinates
+        crkImage = screenshotWindow(crkWin)
+        resetLoc = findResetButton(CONST_RESET_BUTTON_PATH, crkImage)
+        print(f"reset button location: {resetLoc}") 
+
+
+    if not isinstance(resetLoc, tuple):
+        log("Reset button not found. Check UI.")
+        running = False
+
+    log("Starting auto reroll.")
 
     while running:
         start = time.time()
-        if not crkWin:
-            log("CRK window not found. Open GPG.")
-            break
-        else:
-            if not isinstance(resetLoc, tuple):
-                log("Reset button not found. Check UI.")
+        moveAndClick(crkWin, resetLoc) # start click
+        time.sleep(1.14)
+        value_screenshot = screenshotValues(crkWin)
+        cropped = cropValueBoxes(value_screenshot, tainted_bool)
+        high_count, pos = getHighRarityCount(cropped)
+        
+        # check if the amount of purple / orange rolls is >= the no. of lines picked
+        if (high_count >= int(line_count)):
+            roll_screenshot = screenshotRoll(crkWin)
+            rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count, roll_screenshot, tainted_bool)
+            if rollResult:
+                elapsed = round(time.time() - start, 2)
+                log(f"Successfully rolled. Total: {counter} rolls done. {elapsed} time taken.")
                 break
-            moveAndClick(crkWin, resetLoc) # start click
-            time.sleep(1.1)
-            value_screenshot = screenshotValues(crkWin)
-            cropped = cropValueBoxes(value_screenshot, tainted_bool)
-            high_count, pos = getHighRarityCount(cropped)
-            
-            # check if the amount of purple / orange rolls is >= the no. of lines picked
-            if (high_count >= int(line_count)):
-                roll_screenshot = screenshotRoll(crkWin)
-                rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count, roll_screenshot, tainted_bool)
-                if rollResult:
-                    elapsed = round(time.time() - start, 2)
-                    log(f"Successfully rolled. Total: {counter} rolls done. {elapsed} time taken.")
-                    break
-                else:
-                    elapsed = round(time.time() - start, 2)
-                    log(f"Roll {counter}: {high_count} high values but wrong rolls - {rolled}. {elapsed} time taken.")
-                    counter+= 1
             else:
                 elapsed = round(time.time() - start, 2)
-                log(f"Roll {counter}: {high_count} high values. {elapsed}s time taken.")
+                log(f"Roll {counter}: {high_count} high values but wrong rolls - {rolled}. {elapsed} time taken.")
                 counter+= 1
-            
+        else:
+            elapsed = round(time.time() - start, 2)
+            log(f"Roll {counter}: {high_count} high values. {elapsed}s time taken.")
+            counter+= 1
 
     log("auto reroll stopped.")
     running = False
+
 
 def on_start():
     global running
     if running:
         log("Already running.")
         return
+    
+    if not os.path.exists(get_tesseract_path()):
+        log(f"Tesseract-OCR not found at: {get_tesseract_path()}")
+        return
+    else:
+        log(f"Tesseract-OCR found at: {get_tesseract_path()}")
 
     roll_type = roll_type_var.get()
     line_count = line_count_var.get()

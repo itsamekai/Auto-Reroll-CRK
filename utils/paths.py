@@ -11,11 +11,19 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
-def get_tesseract_path():
-    if getattr(sys, 'frozen', False):
-        return os.path.join(sys._MEIPASS, 'Tesseract-OCR', 'tesseract.exe')
+def set_tesseract_path():
+    tesseract_dir = resource_path("TesseractLib")
+
+    # Set TESSDATA_PREFIX for tesserocr
+    tessdata_dir = os.path.join(tesseract_dir, "tessdata")
+    os.environ['TESSDATA_PREFIX'] = tessdata_dir
+
+    # add DLL directory explicitly for windows
+    if sys.platform == "win32" and hasattr(os, "add_dll_directory"):
+        os.add_dll_directory(tesseract_dir)
     else:
-        return os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Tesseract-OCR', 'tesseract.exe'))
+        # Fallback: prepend tesseract_dir to PATH
+        os.environ['PATH'] = tesseract_dir + os.pathsep + os.environ.get('PATH', '')
 
 
 def get_writable_image_dir():

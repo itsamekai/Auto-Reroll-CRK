@@ -1,13 +1,11 @@
+from utils.paths import set_tesseract_path
+# set tesserocr 
+set_tesseract_path()
+from utils.tesseract import api as tesseractAPI
 from utils.rarity import *
 from utils.rolls import *
-from utils.screenshot import *
+from utils.screenshot import * 
 from utils.click import *
-from utils.paths import get_tesseract_path
-
-# global tesseract path for build
-import pytesseract
-pytesseract.pytesseract.tesseract_cmd = get_tesseract_path()
-
 import tkinter as tk
 from tkinter import ttk
 import threading
@@ -55,7 +53,8 @@ def task_loop(roll_type, line_count, tainted_bool):
         log("Reset button not found. Check UI.")
         running = False
 
-    log("Starting auto reroll.")
+    if running:
+        log("Starting auto reroll.")
 
     while running:
         start = time.time()
@@ -68,7 +67,7 @@ def task_loop(roll_type, line_count, tainted_bool):
         # check if the amount of purple / orange rolls is >= the no. of lines picked
         if (high_count >= int(line_count)):
             roll_screenshot = screenshotRoll(crkWin)
-            rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count, roll_screenshot, tainted_bool)
+            rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count, roll_screenshot, tainted_bool, tesseractAPI)
             if rollResult:
                 elapsed = round(time.time() - start, 2)
                 log(f"Successfully rolled. Total: {counter} rolls done. {elapsed} time taken.")
@@ -91,12 +90,6 @@ def on_start():
     if running:
         log("Already running.")
         return
-    
-    if not os.path.exists(get_tesseract_path()):
-        log(f"Tesseract-OCR not found at: {get_tesseract_path()}")
-        return
-    else:
-        log(f"Tesseract-OCR found at: {get_tesseract_path()}")
 
     roll_type = roll_type_var.get()
     line_count = line_count_var.get()
@@ -105,6 +98,9 @@ def on_start():
     if tainted_bool and int(line_count) >3:
         log("Tainted only allows a line count of below 4. Stopping.")
         return
+    
+    if tesseractAPI is None:
+        log("tesseract API not installed properly. Message OP.")
 
     running = True
     threading.Thread(target=task_loop, args=(roll_type, line_count, tainted_bool), daemon=True).start()

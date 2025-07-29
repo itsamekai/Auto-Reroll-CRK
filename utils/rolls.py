@@ -1,9 +1,7 @@
 import cv2
 import numpy as np
 from PIL import Image, ImageEnhance
-import pytesseract
 from utils.paths import *
-
 
 CONST_ROLL_REGIONS = [
     (10, 20, 275, 60), # box1 for value
@@ -36,15 +34,16 @@ def preprocessImage(img):
 
 
 # do preprocessing for OCR.
-def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg):
+def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg, tesserectAPI):
     print("enhancing image \n")
     rolls = []
     rollPos = []
     processed = [preprocessImage(img) for img in valueImg] # pre-process all cropped images
-    custom_config = r'--oem 3 --psm 6 -c tessedit_char_whitelist=%ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+
     for i, processedImg in enumerate(processed):
+        tesserectAPI.SetImage(processedImg)
         print(f"reading roll {i + 1}:")
-        rolled = pytesseract.image_to_string(processedImg, config=custom_config).strip()
+        rolled = tesserectAPI.GetUTF8Text().strip()
         if rolled == rollType:
             rollPos.append(i)
         rolls.append(rolled) # just for clarity to see all rolls
@@ -53,12 +52,9 @@ def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg):
     print(f"value pos: {pos} -- roll pos: {rollPos}") 
     # check positional values; pos[] array returns the position of high values.
     # match the positional values with the positional rolls & check if >= line count (determined by user)
-    if len(set(pos) & set(rollPos)) >= int(line_count):
-        return True, rolls
-    else:
-        return False, rolls
+    return (len(set(pos) & set(rollPos)) >= int(line_count)), rolls
 
 
-def cropEnhanceRead(pos, rollType, lineCount, value_screenshot, tainted):
+def cropEnhanceRead(pos, rollType, lineCount, value_screenshot, tainted, tesseractAPI):
     cropped = cropRollBoxes(value_screenshot, tainted)
-    return enhanceBoxImageAndRead(pos, rollType, lineCount, cropped)
+    return enhanceBoxImageAndRead(pos, rollType, lineCount, cropped, tesseractAPI)

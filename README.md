@@ -4,12 +4,17 @@
 3) Make sure all warning pop ups are gone. (>= 2 rolls, initial roll warnings)
 4) Select lines needed (>= lines) & roll type. 
 
+## Troubleshooting
+1) If unable to detect the reset button, rescale your resolution to 1920x1080.
+2) If unable to detect high rolls (i.e. constantly 0 high values), restart GPG.
+3) @ me on discord for other issues.
+
 ## TO DO
 * refactor UI out of main for better clarity
-* Read Numbers (not that important, but nice to have?) 
-* Improve runtime per roll - needs more optimisation atm
-    * current reads at 1.3s~
-    * current ocr read at 2.2s~
+* Read Numbers (not that important, but nice to have?)
+* ~~Improve runtime per roll - needs more optimisation atm~~
+    * current reads at 1.3s~ (seems like this can't be cut down due to the glare when rerolling)
+    * current OCR takes <0.1s to read.
 * Add more emulator support. 
 * ~~Add support for tainted biscuits.~~
 * ~~Add support for other elemental rolls.~~

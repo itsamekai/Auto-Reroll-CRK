@@ -7,11 +7,15 @@
 ## Troubleshooting
 1) If unable to detect the reset button, rescale your resolution to 1920x1080.
 2) If unable to detect high rolls (i.e. constantly 0 high values), restart GPG.
-3) @ me on discord for other issues.
+3) If rolls are being read wrongly, try making use of the delay. (i.e "Cooldown" being read as "Coldown")
+4) DM me on discord or @ me on discord.gg/creamery for other issues.
 
 ## TO DO
-* refactor UI out of main for better clarity
+* Choose high roll values, i.e. yellow only rolls. (default is purple.)
+* Allow reroller to stop when rolling multiple of other same rolls, if its of high value.
+* Add support for other emulators. (primarily LD.)
 * Read Numbers (not that important, but nice to have?)
+* ~~refactor UI out of main for better clarity~~
 * ~~Improve runtime per roll - needs more optimisation atm~~
     * current reads at 1.3s~ (seems like this can't be cut down due to the glare when rerolling)
     * current OCR takes <0.1s to read.

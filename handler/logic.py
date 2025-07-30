@@ -8,7 +8,7 @@ from handler.state import *
 
 CONST_RESET_BUTTON_PATH = resource_path("template/reset_button.png")
 
-def run_task(roll_type, line_count, tainted_bool, tesseractAPI, log):
+def run_task(roll_type, line_count, tainted_bool, delay, tesseractAPI, log):
     counter = 1
 
     # init crk window from gpg
@@ -35,7 +35,7 @@ def run_task(roll_type, line_count, tainted_bool, tesseractAPI, log):
     while is_running():
         start = time.time()
         moveAndClick(crkWin, resetLoc) # start click
-        time.sleep(1.14)
+        time.sleep(1.14 + float(delay))
         value_screenshot = screenshotValues(crkWin)
         cropped = cropValueBoxes(value_screenshot, tainted_bool)
         high_count, pos = getHighRarityCount(cropped)
@@ -53,7 +53,7 @@ def run_task(roll_type, line_count, tainted_bool, tesseractAPI, log):
                 log(f"Roll {counter}: {high_count} high values but wrong rolls - {rolled}. {elapsed} time taken.")
                 counter+= 1
         else:
-            elapsed = round(time.time() - start, 2)
+            elapsed = round(time.time() - start, 2) 
             log(f"Roll {counter}: {high_count} high values. {elapsed}s time taken.")
             counter+= 1
 

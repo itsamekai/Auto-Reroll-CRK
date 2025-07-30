@@ -3,7 +3,7 @@ from handler.listener import start_esc_listener
 from handler.logic import run_task
 from handler.state import is_running, set_running
 
-def on_start(roll_var, line_var, tainted_var, log, tesseractAPI):
+def on_start(roll_var, line_var, tainted_var, delay_var, log, tesseractAPI):
     if is_running():
         log("Task already running.")
         return
@@ -11,6 +11,7 @@ def on_start(roll_var, line_var, tainted_var, log, tesseractAPI):
     roll_type = roll_var.get()
     line_count = line_var.get()
     tainted_bool = tainted_var.get() == "Enabled"
+    delay = delay_var.get()
 
     if tainted_bool and int(line_count) > 3:
         log("Tainted only supports 3 or fewer lines.")
@@ -23,14 +24,14 @@ def on_start(roll_var, line_var, tainted_var, log, tesseractAPI):
 
     threading.Thread(
         target=run_task,
-        args=(roll_type, line_count, tainted_bool, tesseractAPI, log),
+        args=(roll_type, line_count, tainted_bool, delay, tesseractAPI, log),
         daemon=True
     ).start()
 
 
-def run_wrapper(roll_type, line_count, tainted_bool, tesseractAPI, log_fn):
+def run_wrapper(roll_type, line_count, tainted_bool, delay, tesseractAPI, log_fn):
     try:
-        run_task(roll_type, line_count, tainted_bool, tesseractAPI, log_fn)
+        run_task(roll_type, line_count, tainted_bool, delay, tesseractAPI, log_fn)
     finally:
         set_running(False)
 

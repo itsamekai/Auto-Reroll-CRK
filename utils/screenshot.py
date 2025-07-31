@@ -11,9 +11,9 @@ def screenshotWindow(win):
     return ImageGrab.grab(bbox)
 
 # get crk window and resize. prep for screenshot.
-def findAndResize(title):
+def findAndResize():
     for win in gw.getAllTitles():
-        if title in win:    
+        if 'CookieRun' in win or '쿠키런' in win: # add KR window name
             crWindow = gw.getWindowsWithTitle(win)
             crWindow[0].resizeTo(1500, 1000)
             print(f"Position: ({crWindow[0].left}, {crWindow[0].top})")

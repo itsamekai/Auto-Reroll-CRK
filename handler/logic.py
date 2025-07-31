@@ -12,7 +12,7 @@ def run_task(roll_type, line_count, tainted_bool, delay, tesseractAPI, log):
     counter = 1
 
     # init crk window from gpg
-    crkWin = findAndResize('CookieRun')
+    crkWin = findAndResize()
     if not crkWin:
         log("CRK window not found. Open GPG.")
         set_running(False)

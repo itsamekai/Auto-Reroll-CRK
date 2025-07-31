@@ -3,6 +3,7 @@
 2) Go to beascuit reroll page. 
 3) Make sure all warning pop ups are gone. (>= 2 rolls, initial roll warnings)
 4) Select lines needed (>= lines) & roll type. 
+5) Press ESC to stop.
 
 ## Troubleshooting
 1) If unable to detect the reset button, rescale your resolution to 1920x1080.

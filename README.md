@@ -16,14 +16,17 @@
 * Allow reroller to stop when rolling multiple of other same rolls, if its of high value.
 * Add support for other emulators. (primarily LD.)
 * Read Numbers (not that important, but nice to have?)
-* ~~refactor UI out of main for better clarity~~
-* ~~Improve runtime per roll - needs more optimisation atm~~
+* Cache color_distance() results for faster read times on values
+
+## DONE
+* refactor UI out of main for better clarity
+* Improve runtime per roll - needs more optimisation atm
     * current reads at 1.3s~ (seems like this can't be cut down due to the glare when rerolling)
     * current OCR takes <0.1s to read.
 * Add more emulator support. 
-* ~~Add support for tainted biscuits.~~
-* ~~Add support for other elemental rolls.~~
-* ~~Check positional values to ensure that n number of rolls matches the roll we _actually_ want.~~ 
+* Add support for tainted biscuits.
+* Add support for other elemental rolls.
+* Check positional values to ensure that n number of rolls matches the roll we _actually_ want.
 
 ## Development
 

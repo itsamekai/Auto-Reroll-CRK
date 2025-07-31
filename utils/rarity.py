@@ -30,18 +30,19 @@ def color_distance(c1, c2):
 
 
 # min 0. max 4. increment per purple / orange
-def getHighRarityCount(boxes): 
-    # holds the no. of high rolls   
+def getHighRarityCount(boxes, orange_bool): 
+    # holds the no. of high rolls
     high_count = 0
     pos = []
-    
+    colors = [CONST_ORANGE_RGBA] if orange_bool else [CONST_ORANGE_RGBA, CONST_PURPLE_RGBA] # check only orange if true
+
     for i, img in enumerate(boxes):
         valueImage = img.convert("RGBA")    
         pixels = list(valueImage.getdata())
         
         high_pixel_count = sum(
             1 for px in pixels
-            if any(color_distance(px, color) < 900 for color in (CONST_ORANGE_RGBA, CONST_PURPLE_RGBA))
+            if any(color_distance(px, color) < 900 for color in colors)
         )
 
         density = high_pixel_count / len(valueImage.getdata())

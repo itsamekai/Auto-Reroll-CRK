@@ -8,7 +8,7 @@ from handler.state import *
 
 CONST_RESET_BUTTON_PATH = resource_path("template/reset_button.png")
 
-def run_task(roll_type, line_count, tainted_bool, delay, tesseractAPI, log):
+def run_task(roll_type, line_count, orange_bool, tainted_bool, delay, tesseractAPI, log):
     counter = 1
 
     # init crk window from gpg
@@ -30,7 +30,9 @@ def run_task(roll_type, line_count, tainted_bool, delay, tesseractAPI, log):
     
     else:
         log("Reset button found.")
-        log("Starting auto reroll.")
+        log("Starting auto reroll.") 
+        if (orange_bool):
+            log("ONLY orange rolls ENABLED, purple rolls will not be accounted for. \n")
 
     while is_running():
         start = time.time()
@@ -38,7 +40,7 @@ def run_task(roll_type, line_count, tainted_bool, delay, tesseractAPI, log):
         time.sleep(1.14 + float(delay))
         value_screenshot = screenshotValues(crkWin)
         cropped = cropValueBoxes(value_screenshot, tainted_bool)
-        high_count, pos = getHighRarityCount(cropped)
+        high_count, pos = getHighRarityCount(cropped, orange_bool)
         
         # check if the amount of purple / orange rolls is >= the no. of lines picked
         if (high_count >= int(line_count)):

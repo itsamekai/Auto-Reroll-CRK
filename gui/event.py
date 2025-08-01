@@ -8,12 +8,17 @@ def on_start(roll_var, line_var, orange_var, tainted_var, delay_var, log, tesser
         log("Task already running.")
         return
 
-    roll_type = roll_var.get()
+    # roll type returns in a tuple, i.e. 'ATK', tkinter.Booleanvar. check the 2nd.
+    roll_type = [r for r, v in roll_var.items() if v.get()] 
+    print(f"selected rolls: {roll_type}")
+    if not roll_type:
+        log("No rolls selected.")
+        return
     line_count = line_var.get()
     orange_bool = orange_var.get() == "Enabled"
     tainted_bool = tainted_var.get() == "Enabled"
     delay = delay_var.get()
-
+    
     if tainted_bool and int(line_count) > 3:
         log("Tainted only supports 3 or fewer lines.")
         return

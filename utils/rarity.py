@@ -1,4 +1,4 @@
-from PIL import Image
+import time
 from utils.paths import *
 
 
@@ -35,7 +35,7 @@ def getHighRarityCount(boxes, orange_bool):
     high_count = 0
     pos = []
     colors = [CONST_ORANGE_RGBA] if orange_bool else [CONST_ORANGE_RGBA, CONST_PURPLE_RGBA] # check only orange if true
-
+    # start = time.time()
     for i, img in enumerate(boxes):
         valueImage = img.convert("RGBA")    
         pixels = list(valueImage.getdata())
@@ -50,7 +50,7 @@ def getHighRarityCount(boxes, orange_bool):
         if density > 0.02:
             high_count += 1
             pos.append(i)
-             
+    # print(f"compute color time: {time.time() - start}")
     return high_count, pos
 
 

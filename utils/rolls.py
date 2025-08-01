@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from PIL import Image, ImageEnhance
 from utils.paths import *
+from collections import Counter
 
 CONST_ROLL_REGIONS = [
     (10, 20, 275, 60), # box1 for value
@@ -35,24 +36,27 @@ def preprocessImage(img):
 
 # do preprocessing for OCR.
 def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg, tesserectAPI):
-    print("enhancing image \n")
-    rolls = []
-    rollPos = []
+    print("enhancing image \n") 
+    finalRolls = []
+    rolled = []
     processed = [preprocessImage(img) for img in valueImg] # pre-process all cropped images
 
     for i, processedImg in enumerate(processed):
         tesserectAPI.SetImage(processedImg)
         print(f"reading roll {i + 1}:")
-        rolled = tesserectAPI.GetUTF8Text().strip()
-        if rolled == rollType:
-            rollPos.append(i)
-        rolls.append(rolled) # just for clarity to see all rolls
-    
-    print(rolls)
-    print(f"value pos: {pos} -- roll pos: {rollPos}") 
-    # check positional values; pos[] array returns the position of high values.
-    # match the positional values with the positional rolls & check if >= line count (determined by user)
-    return (len(set(pos) & set(rollPos)) >= int(line_count)), rolls
+        read = tesserectAPI.GetUTF8Text().strip().replace(" ", "")
+        rolled.append(tuple((read, i))) # i.e. [('Cooldown'), 0], [<roll>, <pos>]
+        finalRolls.append(read) 
+
+    # unpacks the tuple as roll and idx and puts it in a new temp list.
+    # checks the temp list if the roll is in the choosen array and pos in position array
+    # get the frequency and return if n amt >= count
+    matched = [roll for roll, idx in rolled if roll in rollType and idx in pos]
+    print(f"pos: {pos} \nrolled: {rolled}\nmatched: {matched}")
+    freq = Counter(matched)
+
+    print(finalRolls)
+    return any(amt >= int(line_count) for amt in freq.values()), finalRolls # check if n amt >= line_count (determined by user)
 
 
 def cropEnhanceRead(pos, rollType, lineCount, value_screenshot, tainted, tesseractAPI):

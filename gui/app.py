@@ -31,7 +31,6 @@ settings = [
 yes_no = ["Enabled", "Disabled"]
 
 
-
 # probably not a clean solution
 # added so I can just move the elements around in the array to reorder the UI
 widgets = ["RollType", "RollCount", "OrangeOnly", "Tainted", "Delay", "start", "log", "credit_name", "credit_server"]
@@ -54,14 +53,61 @@ def createRerollWidgets(mainTab, on_start_callback):
 
     return log_box, start_btn 
 
+# combine a dropdown and a toggle checkbox to select multiple
+def createSelectRollType(parent, row, label_text=settings[0]):
+    tk.Label(parent, text=label_text).grid(row=row, column=0, padx=10, pady=5)
+
+    roll_vars = {roll: tk.BooleanVar(value=False) for roll in ROLL_TYPES}
+
+    def toggle_dropdown():
+        if hasattr(toggle_dropdown, "popup") and toggle_dropdown.popup.winfo_exists():
+            toggle_dropdown.popup.destroy()
+            return
+
+        # pop up window for selecting
+        toggle_dropdown.popup = tk.Toplevel(parent)
+        toggle_dropdown.popup.wm_overrideredirect(True) # acts as a window, set true 
+        toggle_dropdown.popup.attributes("-topmost", True)
+
+        # Position near the button
+        x = dropdown_btn.winfo_rootx()
+        y = dropdown_btn.winfo_rooty() + dropdown_btn.winfo_height()
+        toggle_dropdown.popup.geometry(f"+{x}+{y}")
+
+        # add a border to popup 
+        border_frame = tk.Frame(toggle_dropdown.popup, bg="#444", bd=1)
+        border_frame.pack(padx=1, pady=1)
+        content_frame = tk.Frame(border_frame, bg="white", padx=5, pady=5)
+        content_frame.pack()
+
+        # checkboxes in popup
+        for roll in ROLL_TYPES:
+            cb = tk.Checkbutton(content_frame, text=roll, variable=roll_vars[roll], anchor="w", bg="white", relief="flat")
+            cb.pack(anchor="w", fill="x")
+
+        # event listener for when clicking out
+        def click_outside(event):
+            def check():
+                widget = event.widget
+                while widget is not None:
+                    if widget == toggle_dropdown.popup:
+                        return
+                    widget = widget.master
+                if toggle_dropdown.popup.winfo_exists():
+                    toggle_dropdown.popup.destroy()
+                    parent.unbind_all("<Button-1>")
+                
+            toggle_dropdown.popup.after_idle(check)
+
+        parent.bind_all("<Button-1>", click_outside, add="+")
+
+    dropdown_btn = ttk.Button(parent, text="Select Rolls", command=toggle_dropdown)
+    dropdown_btn.grid(row=row, column=1, padx=10, pady=5)
+
+    return roll_vars
 
 # widgets for 'Settings' tab   
 def createSettingsWidgets(settingsTab):
-
-    # RollType - type of roll; CD, DR, etc.
-    tk.Label(settingsTab, text=settings[0]).grid(row=widgets.index("RollType"), column=0, padx=10, pady=5)
-    roll_var = tk.StringVar(value=ROLL_TYPES[0])
-    ttk.Combobox(settingsTab, textvariable=roll_var, values=ROLL_TYPES, state="readonly").grid(row=widgets.index("RollType"), column=1)
 
     # RollCount - no. of rolls, 2 to 4. (tainted max 3.)
     tk.Label(settingsTab, text=settings[1]).grid(row=widgets.index("RollCount"), column=0, padx=10, pady=5)
@@ -83,7 +129,7 @@ def createSettingsWidgets(settingsTab):
     delay_var = tk.StringVar(value=delay[0])
     ttk.Combobox(settingsTab, textvariable=delay_var, values=delay, state="readonly").grid(row=widgets.index("Delay"), column=1)  
 
-    return roll_var, line_var, orange_var, tainted_var, delay_var
+    return line_var, orange_var, tainted_var, delay_var
 
 
 # widgets for 'Instructions' tab
@@ -94,8 +140,9 @@ def createInstructionsWidgets(instructionsTab):
 
 # init all widgets and return
 def create_widgets(mainTab, settingsTab, instructionsTab, on_start_callback):
+    roll_var = createSelectRollType(settingsTab, row=widgets.index("RollType")) 
     log_box, start_btn = createRerollWidgets(mainTab, on_start_callback)
-    roll_var, line_var, orange_var, tainted_var, delay_var = createSettingsWidgets(settingsTab)
+    line_var, orange_var, tainted_var, delay_var = createSettingsWidgets(settingsTab)
     createInstructionsWidgets(instructionsTab)
 
     return {

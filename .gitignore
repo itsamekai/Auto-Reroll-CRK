@@ -19,3 +19,6 @@ TesseractLib/
 # deploy
 deploy.bash
 deploy.ps1
+
+# test file
+utils/test.py

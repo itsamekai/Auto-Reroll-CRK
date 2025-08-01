@@ -2,7 +2,7 @@
 1) Turn on CRK with GPG.
 2) Go to beascuit reroll page. 
 3) Make sure all warning pop ups are gone. (>= 2 rolls, initial roll warnings)
-4) Select lines needed (>= lines) & roll type. 
+4) Select lines needed (>= lines) & roll type(s). 
 5) Press ESC to stop.
 
 ## Troubleshooting
@@ -12,10 +12,10 @@
 4) DM me on discord or @ me on discord.gg/creamery for other issues.
 
 ## TO DO
-* Allow reroller to stop when rolling multiple of other same rolls, if its of high value.
 * Add support for other emulators. (primarily LD.)
-* Read Numbers (not that important, but nice to have?)
-* Cache color_distance() results for faster read times on values
+* Cache color_distance() results for faster read times on values (each computation is 0.02s~ atm)
+* Attempt color density calculations without waiting for the glare 
+* Add KR localisation.
 
 ## Development
 

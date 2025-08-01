@@ -20,6 +20,18 @@ instructions = [
     "5. Start button to start. ESC key to stop."
     ]
 
+settings = [
+    "Roll Type",
+    "No. of Rolls",
+    "Orange Rolls only",
+    "Tainted Biscuit",
+    "Add Delay"
+]
+
+yes_no = ["Enabled", "Disabled"]
+
+
+
 # probably not a clean solution
 # added so I can just move the elements around in the array to reorder the UI
 widgets = ["RollType", "RollCount", "OrangeOnly", "Tainted", "Delay", "start", "log", "credit_name", "credit_server"]
@@ -47,27 +59,27 @@ def createRerollWidgets(mainTab, on_start_callback):
 def createSettingsWidgets(settingsTab):
 
     # RollType - type of roll; CD, DR, etc.
-    tk.Label(settingsTab, text="Roll Type:").grid(row=widgets.index("RollType"), column=0, padx=10, pady=5)
+    tk.Label(settingsTab, text=settings[0]).grid(row=widgets.index("RollType"), column=0, padx=10, pady=5)
     roll_var = tk.StringVar(value=ROLL_TYPES[0])
     ttk.Combobox(settingsTab, textvariable=roll_var, values=ROLL_TYPES, state="readonly").grid(row=widgets.index("RollType"), column=1)
 
     # RollCount - no. of rolls, 2 to 4. (tainted max 3.)
-    tk.Label(settingsTab, text="How many rolls?").grid(row=widgets.index("RollCount"), column=0, padx=10, pady=5)
+    tk.Label(settingsTab, text=settings[1]).grid(row=widgets.index("RollCount"), column=0, padx=10, pady=5)
     line_var = tk.StringVar(value=LINE_COUNTS[0])
     ttk.Combobox(settingsTab, textvariable=line_var, values=LINE_COUNTS, state="readonly").grid(row=widgets.index("RollCount"), column=1)
 
     # OrangeOnly - auto reroller only stops if n number of lines are orange.     
-    tk.Label(settingsTab, text="Orange rolls only?").grid(row=widgets.index("OrangeOnly"), column=0, padx=10, pady=5)
+    tk.Label(settingsTab, text=settings[2]).grid(row=widgets.index("OrangeOnly"), column=0, padx=10, pady=5)
     orange_var = tk.StringVar(value="Disabled")
-    ttk.Combobox(settingsTab, textvariable=orange_var, values=["Enabled", 'Disabled'], state="readonly").grid(row=widgets.index("OrangeOnly"), column=1)
+    ttk.Combobox(settingsTab, textvariable=orange_var, values=yes_no, state="readonly").grid(row=widgets.index("OrangeOnly"), column=1)
 
     # Tainted - option for tainted beascuits. only 3 rolls.
-    tk.Label(settingsTab, text="Tainted Biscuit?").grid(row=widgets.index("Tainted"), column=0, padx=10, pady=5)
+    tk.Label(settingsTab, text=settings[3]).grid(row=widgets.index("Tainted"), column=0, padx=10, pady=5)
     tainted_var = tk.StringVar(value="Disabled")
-    ttk.Combobox(settingsTab, textvariable=tainted_var, values=["Enabled", "Disabled"], state="readonly").grid(row=widgets.index("Tainted"), column=1)
+    ttk.Combobox(settingsTab, textvariable=tainted_var, values=yes_no, state="readonly").grid(row=widgets.index("Tainted"), column=1)
 
     # Delay - in case OCR has error reading, manually adding a delay can allow more time for the 'Bling' to settle.
-    tk.Label(settingsTab, text="Add Delay").grid(row=widgets.index("Delay"), column=0, padx=10, pady=5)
+    tk.Label(settingsTab, text=settings[4]).grid(row=widgets.index("Delay"), column=0, padx=10, pady=5)
     delay_var = tk.StringVar(value=delay[0])
     ttk.Combobox(settingsTab, textvariable=delay_var, values=delay, state="readonly").grid(row=widgets.index("Delay"), column=1)  
 

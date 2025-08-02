@@ -58,5 +58,5 @@
     "roll_fail": "Roll {counter}: {high_count} high values. {elapsed}s time taken.",
 
     "reroll_stop": "Auto Reroll stopped.",
-    "esc_pressed": "ESC pressed - Stopping task.."
+    "esc_pressed": "ESC pressed - Stopping task."
 }

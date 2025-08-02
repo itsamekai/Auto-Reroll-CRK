@@ -11,6 +11,7 @@ from handler.state import setTranslateWidget, set_translator_language
 def main():
     app = tk.Tk()
     app.title("Auto Reroll by Kai")
+    app.option_add("*Font", "{Segoe UI} 11")
 
     style = ttk.Style()
     style.configure("TNotebook.Tab", padding=[10, 5])

@@ -1,0 +1,62 @@
+{
+    "AmplifyBuff": "AMP des effets bénéfiques",
+    "DMGResistBypass": "Ignore RES",
+    "DMGResist": "RES DGTS",
+    "CRIT%": "CRIT%",
+    "ATK": "ATQ",
+    "HP": "PV",
+    "DEF": "DEF",
+    "ATKSPD": "VIT d'ATQ",
+    "Cooldown": "Vélocité",
+    "DebuffResist": "RES aux effets néfastes",
+    "DarkDMG": "DGTS de Ténèbres",
+    "IceDMG": "DGTS de Glace+",
+    "SteelDMG": "DGTS d'Acier+",
+    "PoisonDMG": "DGTS de Poison",
+    "LightDMG": "DGTS de Lumière",
+    "ElecDMG": "DGTS d'Électricité",
+    "FireDMG": "DGTS de Feu",
+    "EarthDMG": "DGTS de Terre",
+
+    "settings_roll_type": "Stats recherchées",
+    "settings_roll_count": "Nombre de lignes recherchées",
+    "settings_orange_only": "Stat orange uniquement",
+    "settings_tainted_biscuit": "Biscuit bestial",
+    "settings_add_delay": "Ajouter du délai",
+
+    "rolls_enabled": "Activé",
+    "rolls_disabled": "Désactivé",
+
+    "start_button": "Commencer",
+    "credit_name": "Fait par Kai | Discord: @kai",
+    "credit_server": "Discord: discord.gg/creamery",
+
+    "dropdown_select_rolls": "Sélectionner stat",
+
+    "reroll_string": "Reroll",
+    "settings_string": "Paramètres",
+    "instructions_string": "Instructions",
+
+    "instruction_1": "1. Allumez CRK avec Google Play Games. (Assurez vous que le jeu soit anglais)",
+    "instruction_2": "2. Allez sur la page pour reroll un biscuit",
+    "instruction_3": "3. Désactivez les pop-ups d'avertissement lors du changement de stats",
+    "instruction_4": "4. Modifiez les paramètres selon votre recherche dans l'onglet paramètres.",
+    "instruction_5": "5. Appuyez sur le bouton commencer pour démarrer. Appuyez sur Échap pour arrêter.",
+
+    "non_selected": "Pas de stat sélectionnée.",
+    "tainted_error": "Les biscuits bestiaux ne supportent que 3 lignes ou moins.",
+    "already_running": "Reroll déjà en cours.", 
+    "selected_rolls": "Stat sélectionnée: {roll_type}",
+    "crk_not_found": "Fenêtre CRK non trouvée.",
+    "reset_btn_not_found": "Boutton \"tout réinitialiser\" non trouvé. Vérifiez l'émulateur.",
+    "reset_btn_found": "Boutton \"tout réinitialiser\" trouvé.",
+    "reroll_start": "Reroll automatique démarré.",
+    "orange_warning": "Stat orange UNIQUEMENT activé, les stats violettes ne seront pas prises en compte. \n",
+
+    "roll_success": "Succès. Total: {counter} réinitialisations. Cela a pris {elapsed}.",
+    "roll_partial_success": "Réinitialisation {counter}: {high_count} valeurs élevées mais mauvaises stats - {rolled}. Cela a pris {elapsed}.",
+    "roll_fail": "Réinitialisation {counter}: {high_count} valeurs élevées. Cela a pris {elapsed}s.",
+
+    "reroll_stop": "Réinitialisation automatiqué stoppée.",
+    "esc_pressed": "échap appuyé - tâche en arrêt."
+}

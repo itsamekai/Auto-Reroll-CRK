@@ -7,8 +7,10 @@ _translator = Translator()
 AVAILABLE_LANGUAGES = {
     "English": "en",
     # "한국인": "kr",
-    "繁體中文": "zh-TW"
+    "繁體中文": "zh-TW",
     # "简体中文": "zh-CN"
+    "Français": "fr",
+    "ไทย": "th"
 }
 
 def is_running():

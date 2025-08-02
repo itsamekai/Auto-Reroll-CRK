@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-from locale.translate import Translator
 from handler.state import *
 
 ROLL_TYPES = [

@@ -8,7 +8,7 @@ class Translator:
         self.translations = self.load_translations()
 
     def load_translations(self):
-        file_path = os.path.join(self.locale_path, f"{self.lang}.json")
+        file_path = os.path.join(self.locale_path, f"translations/{self.lang}.json")
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 return json.load(f)

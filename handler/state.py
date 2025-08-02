@@ -1,4 +1,4 @@
-from locale.translate import Translator
+from languages.translate import Translator
 _running = False
 _lang = "en"
 _translate_widgets = {}

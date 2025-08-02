@@ -2,7 +2,7 @@ import threading
 from handler.listener import start_esc_listener
 from handler.logic import run_task
 from handler.state import is_running, set_running, set_translator_language, get_translator
-from locale.translate import Translator
+from languages.translate import Translator
 
 
 

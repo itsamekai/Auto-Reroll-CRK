@@ -1,14 +1,24 @@
 import json
 import os
+import sys
 
 class Translator:
-    def __init__(self, lang='en', locale_path='locale'):
+    def __init__(self, lang='en', locale_path=None):
+        if locale_path is None:
+            if getattr(sys, 'frozen', False): # if on app
+                base_path = os.path.join(sys._MEIPASS, 'languages')
+            else:
+                base_path = os.path.dirname(os.path.abspath(__file__))
+                print(base_path)
+                
+            locale_path = os.path.join(base_path, 'translations')
+        
         self.lang = lang
         self.locale_path = locale_path
         self.translations = self.load_translations()
 
     def load_translations(self):
-        file_path = os.path.join(self.locale_path, f"translations/{self.lang}.json")
+        file_path = os.path.join(self.locale_path, f"{self.lang}.json")
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 return json.load(f)

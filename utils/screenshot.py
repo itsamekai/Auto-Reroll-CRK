@@ -4,6 +4,7 @@ import time
 from PIL import ImageGrab
 from utils.paths import *
 
+crkWindowsName = ['CookieRun', '쿠키런', '姜饼人王国', '薑餅人王國']
 
 # screenshot crk window to locate reset all button.
 def screenshotWindow(win):
@@ -13,7 +14,7 @@ def screenshotWindow(win):
 # get crk window and resize. prep for screenshot.
 def findAndResize():
     for win in gw.getAllTitles():
-        if 'CookieRun' in win or '쿠키런' in win: # add KR window name
+        if any(winName in win for winName in crkWindowsName):
             crWindow = gw.getWindowsWithTitle(win)
             crWindow[0].resizeTo(1500, 1000)
             print(f"Position: ({crWindow[0].left}, {crWindow[0].top})")

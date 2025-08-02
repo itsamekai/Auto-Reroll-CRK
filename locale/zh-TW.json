@@ -1,0 +1,62 @@
+{
+    "AmplifyBuff": "增益效果增加",
+    "DMGResistBypass": "傷害抵抗無視",
+    "DMGResist": "傷害抵抗",
+    "CRIT%": "暴擊率",
+    "ATK": "攻擊力",
+    "HP": "體力",
+    "DEF": "防禦力",
+    "ATKSPD": "攻擊速度",
+    "Cooldown": "冷卻",
+    "DebuffResist": "減疫效果抵抗",
+    "DarkDMG": "暗黑屬性傷害增加",
+    "IceDMG": "冰屬性傷害增加",
+    "SteelDMG": "鋼鐵屬性傷害增加",
+    "PoisonDMG": "毒屬性傷害增加",
+    "LightDMG": "光屬性傷害增加",
+    "ElecDMG": "電屬性傷害增加",
+    "FireDMG": "火屬性傷害增加",
+    "EarthDMG": "地屬性傷害增加",
+
+    "settings_roll_type": "脆餅重置類型",
+    "settings_roll_count": "重置次數",
+    "settings_orange_only": "只要橘色數值",
+    "settings_tainted_biscuit": "野獸脆餅",
+    "settings_add_delay": "增加讀取延遲",
+
+    "rolls_enabled": "啟用",
+    "rolls_disabled": "停用",
+
+    "start_button": "開始",
+    "credit_name": "開發人: Kai | Discord: @boonkai",
+    "credit_server": "Discord: discord.gg/creamery",
+
+    "dropdown_select_rolls": "選取重置",
+
+    "reroll_string": "重置",
+    "settings_string": "設定選項",
+    "instructions_string": "使用說明",
+
+    "instruction_1": "1. 用Google Play Games模擬器開啟薑餅人王國. (文字顯示為英文)",
+    "instruction_2": "2. 到脆餅重置頁面.",
+    "instruction_3": "3. 關閉脆餅重置的警告視窗.",
+    "instruction_4": "4. 在設置選項調整設定參數",
+    "instruction_5": "5. 開始按鈕自動重置脆餅. ESC按鍵停止.",
+
+    "non_selected": "無重置次數選取.",
+    "tainted_error": "野獸脆餅只支援 3以下的行數.",
+    "already_running": "已有排程執行中.",
+    "selected_rolls": "選取重置: {roll_type}",
+    "crk_not_found": "未找到薑餅人王國視窗.",
+    "reset_btn_not_found": "未發現重置按鈕. 請檢查模擬器.",
+    "reset_btn_found": "發現重置按鈕.",
+    "reroll_start": "開始自動重置.",
+    "orange_warning": "只看橘色數值, 紫色數值將被忽略. \n",
+
+    "roll_success": "重置成功. 總共: {counter} 次重置完成. 花費時間 {elapsed} .",
+    "roll_partial_success": " {counter}: {high_count} 高數值但錯誤的重置屬性 - {rolled}. 花費時間 {elapsed}.",
+    "roll_fail": "重置 {counter}: {high_count} 高數值. 花費時間{elapsed}s .",
+
+    "reroll_stop": "自動重置停止.",
+    "esc_pressed": "按下ESC - 停止排程."
+}

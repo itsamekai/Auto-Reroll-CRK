@@ -6,15 +6,19 @@ from utils.rarity import *
 from utils.paths import resource_path
 from handler.state import *
 
+
 CONST_RESET_BUTTON_PATH = resource_path("template/reset_button.png")
+
 
 def run_task(roll_type, line_count, orange_bool, tainted_bool, delay, tesseractAPI, log):
     counter = 1
-
+    set_translator_language()
+    translator = get_translator()
+    
     # init crk window from gpg
     crkWin = findAndResize()
     if not crkWin:
-        log("CRK window not found. Open GPG.")
+        log(translator.text("crk_not_found"))
         set_running(False)
         return
     
@@ -24,15 +28,15 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, delay, tesseractA
     print(f"reset button location: {resetLoc}")
 
     if not isinstance(resetLoc, tuple):
-        log("Reset button not found. Check UI.")
+        log(translator.text("reset_btn_not_found"))
         set_running(False)
         return
     
     else:
-        log("Reset button found.")
-        log("Starting auto reroll.") 
+        log(translator.text("reset_btn_found"))
+        log(translator.text("reroll_start")) 
         if (orange_bool):
-            log("ONLY orange rolls ENABLED, purple rolls will not be accounted for. \n")
+            log(translator.text("orange_warning"))
 
     while is_running():
         start = time.time()
@@ -48,16 +52,17 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, delay, tesseractA
             rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count, roll_screenshot, tainted_bool, tesseractAPI)
             if rollResult:
                 elapsed = round(time.time() - start, 2)
-                log(f"Successfully rolled. Total: {counter} rolls done. {elapsed} time taken.")
+                log(translator.text("roll_success", counter=counter, elapsed=elapsed))
                 break
             else:
+                translated = translator.translate_rolls(rolled)
                 elapsed = round(time.time() - start, 2)
-                log(f"Roll {counter}: {high_count} high values but wrong rolls - {rolled}. {elapsed} time taken.")
+                log(translator.text("roll_partial_success", counter=counter, high_count=high_count, rolled=translated, elapsed=elapsed))
                 counter+= 1
         else:
             elapsed = round(time.time() - start, 2) 
-            log(f"Roll {counter}: {high_count} high values. {elapsed}s time taken.")
+            log(translator.text("roll_fail", counter=counter, high_count=high_count, elapsed=elapsed))
             counter+= 1
 
-    log("auto reroll stopped.")
+    log(translator.text("reroll_stop"))
     set_running(False)

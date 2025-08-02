@@ -6,7 +6,7 @@ from utils.paths import set_tesseract_path
 # set tesserocr
 set_tesseract_path()
 from utils.tesseract import api as tesseractAPI
-
+from handler.state import setTranslateWidget, set_translator_language
 
 def main():
     app = tk.Tk()
@@ -20,12 +20,17 @@ def main():
 
     mainTab = ttk.Frame(notebook, padding=10)
     notebook.add(mainTab, text="Reroll")
-
+    
     settingsTab = ttk.Frame(notebook, padding=10)
     notebook.add(settingsTab, text="Settings")
 
     instructionsTab = ttk.Frame(notebook, padding=10)
     notebook.add(instructionsTab, text="Instructions")
+
+    # use indexes to determine the tabs accordingly
+    setTranslateWidget("reroll_string", (notebook, 0))
+    setTranslateWidget("settings_string", (notebook, 1))
+    setTranslateWidget("instructions_string", (notebook, 2))
 
     # for logging to logbox in UI
     def log(msg):
@@ -41,6 +46,7 @@ def main():
     widgets = create_widgets(mainTab, settingsTab, instructionsTab, start_callback)
     log_box = widgets["log_box"]
     # start esc listener
+    set_translator_language()
     start_listener(log)
 
     app.mainloop()

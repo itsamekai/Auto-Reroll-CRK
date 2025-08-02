@@ -1,0 +1,62 @@
+{
+    "AmplifyBuff": "이로운 효과 증가",
+    "DMGResistBypass": "피해감소 무시",
+    "DMGResist": "피해감소",
+    "CRIT%": "치명타 확률",
+    "ATK": "공격력",
+    "HP": "체력",
+    "DEF": "방어력",
+    "ATKSPD": "공격속도",
+    "Cooldown": "쿨타임",
+    "DebuffResist": "해로운 효과 감소",
+    "DarkDMG": "어둠 속성 피해 증가",
+    "IceDMG": "얼음 속성 피해 증가",
+    "SteelDMG": "강철 속성 피해 증가",
+    "PoisonDMG": "독 속성 피해 증가",
+    "LightDMG": "빛 속성 피해 증가",
+    "ElecDMG": "전기 속성 피해 증가",
+    "FireDMG": "불 속성 피해 증가",
+    "EarthDMG": "땅 속성 피해 증가",
+    
+    "settings_roll_type": "부옵 선택",
+    "settings_roll_count":  "부옵 수",    
+    "settings_orange_only": "주황 옵션만 킵하기",
+    "settings_tainted_biscuit": "비스트킷",
+    "settings_add_delay": "지연 시간",
+
+    "rolls_enabled": "켜짐",
+    "rolls_disabled": "꺼짐",
+
+    "start_button": "Start",
+    "credit_name": "Done by: Kai | Discord: @boonkai",
+    "credit_server": "Discord: discord.gg/creamery",
+
+    "dropdown_select_rolls": "Select Rolls",
+    
+    "reroll_string": "Reroll",
+    "settings_string": "Settings",
+    "instructions_string": "Instructions",
+
+    "instruction_1": "1. 컴퓨터로 구글 플레이 게임을 열고 쿠키런 킹덤 킨다.",
+    "instruction_2": "2. 비스킷 재설정 페이지 연다.",
+    "instruction_3": "3. 재설정하시겠습니까? 메시지를 다시 보지 않기 킨다.",
+    "instruction_4": "4. 자동리롤 원하는 대로 설정한다.",
+    "instruction_5": "5. Start 버튼으로 시작한다. ESC 버튼으로 멈춘다.",
+
+    "non_selected": "No rolls selected.",
+    "tainted_error": "Tainted Beascuits only supports 3 or fewer lines.",
+    "already_running": "Task already running.",
+    "selected_rolls": "Selected rolls: {roll_type}",
+    "crk_not_found": "CRK window not found.",
+    "reset_btn_not_found": "Reset button not found. Check emulator.",
+    "reset_btn_found": "Reset button found.",
+    "reroll_start": "Starting auto reroll.",
+    "orange_warning": "ONLY orange rolls ENABLED, purple rolls will not be accounted for. \n",
+
+    "roll_success": "Successfully rolled. Total: {counter} rolls done. {elapsed} time taken.",
+    "roll_partial_success": "Roll {counter}: {high_count} high values but wrong rolls - {rolled}. {elapsed} time taken.",
+    "roll_fail": "Roll {counter}: {high_count} high values. {elapsed}s time taken.",
+
+    "reroll_stop": "Auto Reroll stopped.",
+    "esc_pressed": "ESC pressed - Stopping task.."
+}

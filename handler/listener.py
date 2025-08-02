@@ -1,5 +1,6 @@
 import keyboard
 import threading
+from handler.state import get_translator 
 
 def start_esc_listener(is_running, set_running, log):
     def listen():
@@ -7,6 +8,7 @@ def start_esc_listener(is_running, set_running, log):
             keyboard.wait("esc")
             if is_running():
                 set_running(False)
-                log("ESC pressed — stopping task.")
+                translator = get_translator()
+                log(translator.text("esc_pressed"))
 
-    threading.Thread(target=listen, daemon=True).start()
+    threading.Thread(target=listen, daemon=True).start()    

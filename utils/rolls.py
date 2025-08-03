@@ -4,22 +4,37 @@ from PIL import Image, ImageEnhance
 from utils.paths import *
 from collections import Counter
 
-CONST_ROLL_REGIONS = [
+CONST_GPG_ROLL_REGIONS = [
     (10, 20, 275, 60), # box1 for value
     (10, 105, 275, 140), # box 2 for value
     (10, 190, 275, 225), # box 3 for value
     (10, 275, 275, 310) # box 4 for value
 ]
 
+CONST_LDPLAYER_ROLL_REGIONS = [
+    (3, 23, 275, 60), # box1 for value
+    (3, 108, 275, 140), # box 2 for value
+    (3, 192, 275, 225), # box 3 for value
+    (3, 275, 275, 310) # box 4 for value
+]
+
+EMU_CROPPED_REGIONS = {
+    "LDPlayer": CONST_LDPLAYER_ROLL_REGIONS,
+    "GPG": CONST_GPG_ROLL_REGIONS
+}
+
 # crop initial roll image into 4 boxes for each roll.
-def cropRollBoxes(rollImg, tainted):
+def cropRollBoxes(emu, rollImg, tainted):
+    crop_region = EMU_CROPPED_REGIONS[emu]
+    print(crop_region)
     croppedBoxes = []
     if tainted:
-        for box in CONST_ROLL_REGIONS[1:]:
+        for box in crop_region[1:]:
             croppedBoxes.append(rollImg.crop(box))
     else:
-        for box in CONST_ROLL_REGIONS:
+        for box in crop_region:
             croppedBoxes.append(rollImg.crop(box))
+            # rollImg.crop(box).save(os.path.join(WRITABLE_IMAGE_DIR, f"cropped_box{counter}.jpeg"))
     return croppedBoxes
 
 
@@ -59,6 +74,6 @@ def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg, tesserectAPI):
     return any(amt >= int(line_count) for amt in freq.values()), finalRolls # check if n amt >= line_count (determined by user)
 
 
-def cropEnhanceRead(pos, rollType, lineCount, value_screenshot, tainted, tesseractAPI):
-    cropped = cropRollBoxes(value_screenshot, tainted)
+def cropEnhanceRead(emu, pos, rollType, lineCount, value_screenshot, tainted, tesseractAPI):
+    cropped = cropRollBoxes(emu, value_screenshot, tainted)
     return enhanceBoxImageAndRead(pos, rollType, lineCount, cropped, tesseractAPI)

@@ -16,7 +16,8 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, delay, tesseractA
     translator = get_translator()
     
     # init crk window from gpg
-    crkWin = findAndResize()
+    crkWin, emu = findAndResize()
+    # print(f"emulator: {emu}")
     if not crkWin:
         log(translator.text("crk_not_found"))
         set_running(False)
@@ -35,6 +36,7 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, delay, tesseractA
     else:
         log(translator.text("reset_btn_found"))
         log(translator.text("reroll_start")) 
+        log(f"Emulator: {emu}")
         if (orange_bool):
             log(translator.text("orange_warning"))
 
@@ -42,14 +44,14 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, delay, tesseractA
         start = time.time()
         moveAndClick(crkWin, resetLoc) # start click
         time.sleep(1.14 + float(delay))
-        value_screenshot = screenshotValues(crkWin)
+        value_screenshot = screenshotValues(crkWin, emu)
         cropped = cropValueBoxes(value_screenshot, tainted_bool)
         high_count, pos = getHighRarityCount(cropped, orange_bool)
         
         # check if the amount of purple / orange rolls is >= the no. of lines picked
         if (high_count >= int(line_count)):
-            roll_screenshot = screenshotRoll(crkWin)
-            rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count, roll_screenshot, tainted_bool, tesseractAPI)
+            roll_screenshot = screenshotRoll(crkWin, emu)
+            rollResult, rolled = cropEnhanceRead(emu, pos, roll_type, line_count, roll_screenshot, tainted_bool, tesseractAPI)
             if rollResult:
                 elapsed = round(time.time() - start, 2)
                 log(translator.text("roll_success", counter=counter, elapsed=elapsed))

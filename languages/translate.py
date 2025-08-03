@@ -9,7 +9,6 @@ class Translator:
                 base_path = os.path.join(sys._MEIPASS, 'languages')
             else:
                 base_path = os.path.dirname(os.path.abspath(__file__))
-                print(base_path)
                 
             locale_path = os.path.join(base_path, 'translations')
         

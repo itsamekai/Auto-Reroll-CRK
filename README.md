@@ -2,7 +2,7 @@
 1) Allows picking of **multiple rolls**. i.e if CD, ATK are picked and at least 2 lines, it will stop when it hits either 2 lines of CD or 2 lines of ATK. Doesn't work for 1/1. **(no limit to how many you pick!)**
 2) Tainted beascuit support.
 3) Orange rolls only option; this means it only stops if you roll _n_ amount of orange rolls. Purple does not count.
-4) Supports Google Play Games only. (please be patient for other emulators!) 
+4) Supports Google Play Games and LDPlayer. (high chances other emulators won't be supported unless by high demand.)
 
 ## Languages Available
 If you wish to contribute towards the project by translating, please message me on discord!
@@ -11,13 +11,13 @@ If you wish to contribute towards the project by translating, please message me 
 - 🇫🇷 Français (French)
 - 🇹🇼 繁體中文 (Traditional Chinese) 
 
-
 ## Steps to Use
 1) Turn on CRK with GPG.
 2) Go to beascuit reroll page. 
 3) Make sure all warning pop ups are gone. (>= 2 rolls, initial roll warnings)
 4) Select lines needed (>= lines) & roll type(s). 
 5) Press ESC to stop.
+6) **IMPORTANT** If you are on LDPlayer, make sure you expand the side menu on the top right.  
 
 ## Troubleshooting
 1) If unable to detect the reset button, rescale your resolution to 1920x1080, or put in your main monitor (if using more than 1). 

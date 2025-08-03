@@ -18,15 +18,23 @@ CONST_LDPLAYER_ROLL_REGIONS = [
     (3, 275, 275, 310) # box 4 for value
 ]
 
+CONST_MUMU_ROLL_REGIONS = [
+    (10, 25, 275, 63),    
+    (10, 100, 275, 150),  
+    (10, 185, 275, 235),  
+    (10, 275, 275, 325)  
+]
+
+
 EMU_CROPPED_REGIONS = {
     "LDPlayer": CONST_LDPLAYER_ROLL_REGIONS,
-    "GPG": CONST_GPG_ROLL_REGIONS
+    "GPG": CONST_GPG_ROLL_REGIONS,
+    "Mumu": CONST_MUMU_ROLL_REGIONS
 }
 
 # crop initial roll image into 4 boxes for each roll.
 def cropRollBoxes(emu, rollImg, tainted):
     crop_region = EMU_CROPPED_REGIONS[emu]
-    print(crop_region)
     croppedBoxes = []
     if tainted:
         for box in crop_region[1:]:
@@ -51,14 +59,12 @@ def preprocessImage(img):
 
 # do preprocessing for OCR.
 def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg, tesserectAPI):
-    print("enhancing image \n") 
     finalRolls = []
     rolled = []
     processed = [preprocessImage(img) for img in valueImg] # pre-process all cropped images
 
     for i, processedImg in enumerate(processed):
         tesserectAPI.SetImage(processedImg)
-        print(f"reading roll {i + 1}:")
         read = tesserectAPI.GetUTF8Text().strip().replace(" ", "")
         rolled.append(tuple((read, i))) # i.e. [('Cooldown'), 0], [<roll>, <pos>]
         finalRolls.append(read) 

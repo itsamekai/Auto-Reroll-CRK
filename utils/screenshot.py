@@ -4,9 +4,10 @@ import time
 from PIL import ImageGrab
 from utils.paths import *
 
-crkWindowsName = ['CookieRun', '쿠키런', '姜饼人王国', '薑餅人王國', 'LDPlayer']
+crkWindowsName = ['CookieRun', '쿠키런', '姜饼人王国', '薑餅人王國', 'LDPlayer', 'CRKROLL']
 CONST_GPG_WIN_NAMES = ['CookieRun', '쿠키런', '姜饼人王国', '薑餅人王國']
 CONST_LDPLAYER_WIN_NAME = ['LDPlayer']
+CONST_MUMU_WIN_NAME = ['CRKROLL']
 
 # regions for Google Play Games
 gpg_value_region = (975, 455, 105, 335)
@@ -16,9 +17,14 @@ gpg_roll_region = (400, 455, 275, 335)
 ldp_value_region = (940, 470, 105, 335)
 ldp_roll_region = (400, 470, 275, 335)
 
+# region for Mumu.
+mumu_value_region = (975, 470, 105, 335)
+mumu_roll_region = (400, 470, 275, 335)
+
 EMU_REGIONS = {
     "LDPlayer": (ldp_value_region, ldp_roll_region),
-    "GPG": (gpg_value_region, gpg_roll_region)
+    "GPG": (gpg_value_region, gpg_roll_region),
+    "Mumu": (mumu_value_region, mumu_roll_region)
 }
 
 # screenshot crk window to locate reset all button.
@@ -39,7 +45,8 @@ def findAndResize():
             emu = (
                 'GPG' if any(name in win for name in CONST_GPG_WIN_NAMES)
                 else 'LDPlayer' if any(name in win for name in CONST_LDPLAYER_WIN_NAME)
-                else 'NotFound'
+                else 'Mumu' if any(name in win for name in CONST_MUMU_WIN_NAME)
+                else None
             )
             time.sleep(1)
             

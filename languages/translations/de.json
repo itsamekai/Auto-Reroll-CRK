@@ -1,0 +1,62 @@
+{
+    "AmplifyBuff": "Buffs",
+    "DMGResistBypass": "Durchdringung",
+    "DMGResist": "SCHDNRES",
+    "CRIT%": "KRIT%",
+    "ATK": "ANG",
+    "HP": "HP",
+    "DEF": "VER",
+    "ATKSPD": "ANG-Tempo",
+    "Cooldown": "Abklingzeit",
+    "DebuffResist": "DebuffRES",
+    "DarkDMG": "Schatten-SCHDN",
+    "IceDMG": "Eis-SCHDN",
+    "SteelDMG": "Stahl-SCHDN",
+    "PoisonDMG": "Gift-SCHDN",
+    "LightDMG": "Licht-SCHDN",
+    "ElecDMG": "Elektro-SCHDN",
+    "FireDMG": "Feuer-SCHDN",
+    "EarthDMG": "Erd-SCHDN",
+
+    "settings_roll_type": "Art_der_Bonuseffekte",
+    "settings_roll_count": "Anzahl_der_Zurücksetzung",
+    "settings_orange_only": "nur goldene Bonuseffekte",
+    "settings_tainted_biscuit": "Biest-Rohkeks",
+    "settings_add_delay": "Verzögerung hinzufügen",
+
+    "rolls_enabled": "Funktionsfähig",
+    "rolls_disabled": "Funktionsunfähig",
+
+    "start_button": "Beginnen",
+    "credit_name": "codiert von Kai | Discord: @boonkai",
+    "credit_server": "Discord: discord.gg/creamery",
+
+    "dropdown_select_rolls": "Bonuseffekte auswählen",
+
+    "reroll_string": "Zurücksetzen",
+    "settings_string": "Einstellung",
+    "instructions_string": "Anweisung",
+
+    "instruction_1": "1. Loggen Sie sich bei CRK entweder mit Google Play Games oder mit LDPlayer. (CRK muss auf Deutsche-Text-Einstellung sein)",
+    "instruction_2": "2. Öffnen Sie das Rohkeks-Zurücksetzung-Menü.",
+    "instruction_3": "3. Wählen sie „Heute nicht mehr anzeigen“ Einstellung.",
+    "instruction_4": "4. Ändern Sie die Einstellungen entsprechend in Einstellungen.",
+    "instruction_5": "5. Beginn-Knopf, um die Zurücksetzung zu anfangen. ESC-Knopf, um die Zurücksetzung zu aufhalten.",
+
+    "non_selected": "Keine Bonuseffekte ausgewählt.",
+    "tainted_error": "Biest-Rohkekse nutzen nur 3 oder wenigere Bonuseffekte-Mengen.",
+    "already_running": "Aufgabe ist schon laufend.",
+    "selected_rolls": "Ausgewählte Bonuseffekte: {roll_type}",
+    "crk_not_found": "CRK-Ausschnitt nicht gefunden.",
+    "reset_btn_not_found": "Zurücksetzung-Knopf_nicht_gefunden. Überprüfen den Emulator.",
+    "reset_btn_found": "Zurücksetzung-Knopf ist gefunden.",
+    "reroll_start": "Beginnt mit der Zurücksetzung.",
+    "orange_warning": "NUR goldene Zurücksetzungen ausgewählt, Violette Bonuseffekte werden nicht berücksichtigt. \n",
+
+    "roll_success": "Zurücksetzung erfolgreich. Anzahl: {counter} Zurücksetzungen. {elapsed} verbringt.",
+    "roll_partial_success": "Zurücksetzung {counter}: {high_count} höhe_Prozente, falsche Bonuseffekte - {rolled}. {elapsed} verbringt.",
+    "roll_fail": "Zurücksetzung {counter}: {high_count} höhe_Prozente. {elapsed} verbringt.",
+
+    "reroll_stop": "Zurücksetzung ist aufgehalten.",
+    "esc_pressed": "ESC-Knopf gedrückt- Zurücksetzung aufgehaltet."
+}

@@ -1,0 +1,62 @@
+{
+
+    "AmplifyBuff": "增益效果增加",
+    "DMGResistBypass": "伤害抵抗无视",
+    "DMGResist": "伤害抵抗",
+    "CRIT%": "暴击率",
+    "ATK": "攻击力",
+    "HP": "体力",
+    "DEF": "防御力",
+    "ATKSPD": "攻击速度",
+    "Cooldown": "冷却",
+    "DebuffResist": "减疫效果抵抗",
+    "DarkDMG": "暗黑属性伤害增加",
+    "IceDMG": "冰属性伤害增加",
+    "SteelDMG": "钢铁属性伤害增加",
+    "PoisonDMG": "毒属性伤害增加",
+    "LightDMG": "光属性伤害增加",
+    "ElecDMG": "电属性伤害增加",
+    "FireDMG": "火属性伤害增加",
+    "EarthDMG": "地属性伤害增加",
+
+    "settings_roll_type": "脆饼重置类型",
+    "settings_roll_count": "重置次数",
+    "settings_orange_only": "只要橘色数值",
+    "settings_tainted_biscuit": "野兽脆饼",
+    "settings_add_delay": "增加读取延迟",
+
+    "rolls_enabled": "启用",
+    "rolls_disabled": "停用",
+
+    "start_button": "开始",
+    "credit_name": "开发人: Kai | Discord: @boonkai",
+    "credit_server": "Discord: discord.gg/creamery",
+
+  "dropdown_select_rolls": "选取重置",
+
+   "reroll_string": "重置",
+    "settings_string": "设定选项",
+    "instructions_string": "使用说明",
+
+    "instruction_1": "1. 用Google Play Games / LDPlayer 模拟器开启姜饼人王国. (文字显示为英文)",
+    "instruction_2": "2. 到脆饼重置页面.",
+    "instruction_3": "3. 关闭脆饼重置的警告视窗.",
+    "instruction_4": "4. 在设置选项调整设定参数",
+    "instruction_5": "5. 开始按钮自动重置脆饼. ESC按键停止.",
+
+    "non_selected": "无重置次数选取.",
+    "tainted_error": "野兽脆饼只支援 3以下的行数.",
+    "already_running": "已有排程执行中.",
+    "selected_rolls": "选取重置: {roll_type}",
+    "crk_not_found": "未找到姜饼人王国视窗.",
+    "reset_btn_not_found": "未发现重置按钮. 请检查模拟器.",
+    "reset_btn_found": "发现重置按钮.",
+    "reroll_start": "开始自动重置.",
+    "orange_warning": "只看橘色数值, 紫色数值将被忽略. \n",
+
+    "roll_success": "重置成功. 总共: {counter} 次重置完成. 花费时间 {elapsed} .",
+    "roll_partial_success": " {counter}: {high_count} 高数值但错误的重置属性 - {rolled}. 花费时间 {elapsed}.",
+    "roll_fail": "重置 {counter}: {high_count} 高数值. 花费时间{elapsed}s .",
+
+    "reroll_stop": "自动重置停止."
+}

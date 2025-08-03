@@ -27,36 +27,36 @@
     "rolls_enabled": "켜짐",
     "rolls_disabled": "꺼짐",
 
-    "start_button": "Start",
-    "credit_name": "Done by: Kai | Discord: @boonkai",
-    "credit_server": "Discord: discord.gg/creamery",
+    "start_button": "시작",
+    "credit_name": "개발자: Kai | 디스코드: @boonkai",
+    "credit_server": "디스코드 방: discord.gg/creamery",
 
-    "dropdown_select_rolls": "Select Rolls",
-    
-    "reroll_string": "Reroll",
-    "settings_string": "Settings",
-    "instructions_string": "Instructions",
+    "dropdown_select_rolls": "부옵 선택",
 
-    "instruction_1": "1. 컴퓨터로 구글 플레이 게임을 열고 쿠키런 킹덤 킨다.",
+    "reroll_string": "재설정",
+    "settings_string": "설정",
+    "instructions_string": "사용법",
+
+    "instruction_1": "1. 컴퓨터로  Google Play Games Beta/LDPlayer 열고 쿠키런 킹덤 킨다 (게임 언어는 영어로).",
     "instruction_2": "2. 비스킷 재설정 페이지 연다.",
     "instruction_3": "3. 재설정하시겠습니까? 메시지를 다시 보지 않기 킨다.",
     "instruction_4": "4. 자동리롤 원하는 대로 설정한다.",
     "instruction_5": "5. Start 버튼으로 시작한다. ESC 버튼으로 멈춘다.",
 
-    "non_selected": "No rolls selected.",
-    "tainted_error": "Tainted Beascuits only supports 3 or fewer lines.",
-    "already_running": "Task already running.",
-    "selected_rolls": "Selected rolls: {roll_type}",
-    "crk_not_found": "CRK window not found.",
-    "reset_btn_not_found": "Reset button not found. Check emulator.",
-    "reset_btn_found": "Reset button found.",
-    "reroll_start": "Starting auto reroll.",
-    "orange_warning": "ONLY orange rolls ENABLED, purple rolls will not be accounted for. \n",
+    "non_selected": "선택한 부옵이 없습니다.",
+    "tainted_error": "비스트킷 옵션은 3줄 이하만 선택 할수 있습니다",
+    "already_running": "프로그램이 이미 실행되고 있습니다.",
+    "selected_rolls": "선택한 부옵: {roll_type}",
+    "crk_not_found": "쿠키런 창이 열려있지 않습니다.",
+    "reset_btn_not_found": "재설정 버튼을 찾지 못했습니다.",
+    "reset_btn_found": "재설정 버튼 찾았습니다.",
+    "reroll_start": "자동 리롤 실행 시작합니다.",
+    "orange_warning": "주황 부옵만 킵하기 ON - 보라색 부옵을 놓칠수도 있습니다 \n",
 
-    "roll_success": "Successfully rolled. Total: {counter} rolls done. {elapsed} time taken.",
-    "roll_partial_success": "Roll {counter}: {high_count} high values but wrong rolls - {rolled}. {elapsed} time taken.",
-    "roll_fail": "Roll {counter}: {high_count} high values. {elapsed}s time taken.",
+    "roll_success": "완료 - 총 재설정 수: {counter}번. 걸린 시간: {elapsed}.",
+    "roll_partial_success": "재설정회 #{counter}: {high_count}개 높은 부옵, 하지만 선택된 옵션 아님 - {rolled}. 걸린 시간: {elapsed}.",
+    "roll_fail": "재설정 {counter}번째: {high_count} 선택된 부옵. 걸린 시간: {elapsed}.",
 
-    "reroll_stop": "Auto Reroll stopped.",
-    "esc_pressed": "ESC pressed - Stopping task."
+    "reroll_stop": "자동 리롤 중지.",
+    "esc_pressed": "ESC 눌림 - 자동리롤 중지하는중."
 }

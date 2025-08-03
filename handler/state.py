@@ -6,11 +6,13 @@ _translator = Translator()
 
 AVAILABLE_LANGUAGES = {
     "English": "en",
-    # "한국인": "kr",
-    "繁體中文": "zh-TW",
-    # "简体中文": "zh-CN"
+    "한국인": "kr",
+    "繁體中文": "zh-TW", # Traditional Chinese
+    "简体中文": "zh-CN",  # Simplified Chinese
+    "ไทย": "th",
     "Français": "fr",
-    "ไทย": "th"
+    "Deutsch" : "de",
+    "Português (Brasil)": "pt-BR"    
 }
 
 def is_running():

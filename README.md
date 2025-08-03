@@ -7,9 +7,14 @@
 ## Languages Available
 If you wish to contribute towards the project by translating, please message me on discord!
 
-- 🇹🇭 ไทย (Thai)
-- 🇫🇷 Français (French)
-- 🇹🇼 繁體中文 (Traditional Chinese) 
+- 🇬🇧 English  
+- 🇰🇷 한국인 (Korean)  
+- 🇹🇼 繁體中文 (Traditional Chinese)  
+- 🇨🇳 简体中文 (Simplified Chinese)  
+- 🇹🇭 ไทย (Thai)  
+- 🇫🇷 Français (French)  
+- 🇩🇪 Deutsch (German)  
+- 🇧🇷 Português (Brasil)
 
 ## Steps to Use
 1) Turn on CRK with GPG.
@@ -49,6 +54,10 @@ py main.py
 
 Thank you to the following individuals for contributing their time and effort to make this project accessible in multiple languages:
 
-- 🇹🇭 **ไทย (Thai)**: Bushy - @bushy2018
-- 🇫🇷 **Français (French)**: Luz - @luzushi
-- 🇹🇼 **繁體中文 (Traditional Chinese)**: JackyKuo (my goat)
+- 🇰🇷 **한국인 (Korean)**: Mono - @monoxerses  
+- 🇹🇼 **繁體中文 (Traditional Chinese)**: JackyKuo (my goat)  
+- 🇨🇳 **简体中文 (Simplified Chinese)**: JackyKuo
+- 🇹🇭 **ไทย (Thai)**: Bushy - @bushy2018  
+- 🇫🇷 **Français (French)**: Luz - @luzushi  
+- 🇩🇪 **Deutsch (German)**: Maddy - @madeleineaddyson
+- 🇧🇷 **Português (Brasil)**: JJ - @jjftw1310

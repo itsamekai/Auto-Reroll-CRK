@@ -1,0 +1,62 @@
+{
+    "AmplifyBuff": "Amplificação de Buffs",
+    "DMGResistBypass": "Ignorar Resistência a Dano",
+    "DMGResist": "Resistência a Dano",
+    "CRIT%": "%CRÍT",
+    "ATK": "ATQ",
+    "HP": "PV",
+    "DEF": "DEF",
+    "ATKSPD": "VEL. de ATQ",
+    "Cooldown": "Recarga",
+    "DebuffResist": "Resistência a Debuffs",
+    "DarkDMG": "Dano Sombrio",
+    "IceDMG": "Dano de Gelo",
+    "SteelDMG": "Dano de Aço",
+    "PoisonDMG": "Dano de Veneno",
+    "LightDMG": "Dano de Luz",
+    "ElecDMG": "Dano Elétrico",
+    "FireDMG": "Dano de Fogo",
+    "EarthDMG": "Dano de Terra",
+    
+    "settings_roll_type": "Tipo de Giro",
+    "settings_roll_count": "N. de Giros",
+    "settings_orange_only": "somente Giros Laranjas",
+    "settings_tainted_biscuit": "Beascuit Tainted",
+    "settings_add_delay": "Adicionar Atraso",
+
+    "rolls_enabled": "Habilitado",
+    "rolls_disabled": "Desabilitado",
+
+    "start_button": "Iniciar",
+    "credit_name": "Feito por: Kai | Discord: @boonkai",
+    "credit_server": "Discord: discord.gg/creamery", 
+
+    "dropdown_select_rolls": "Selecionar Giros",
+
+    "reroll_string": "Girar",
+    "settings_string": "Configurações",
+    "instructions_string": "Instruções",
+
+    "instruction_1": "1. Ativar o Cookie Run: Kingdom com o Google Play Games ou LDPlayer. (Certifique-se que o jogo esteja na língua inglesa)",
+    "instruction_2": "2. Vá para a aba de girar o Beascuit.",
+    "instruction_3": "3. Desabilite os pop-ups de aviso do Beascuit.",
+    "instruction_4": "4. Modifique suas configurações de acordo na aba de configurações.",
+    "instruction_5": "5. Inicie com o botão de Iniciar. Aperte a tecla ESC para encerrar.",
+
+    "non_selected": "Sem giros selecionados.",
+    "tainted_error": "Beascuits Tainteds somente suportam 3 (três) ou menos linhas.",
+    "already_running": "Tarefa já está sendo executada.",
+    "selected_rolls": "Giros selecionados: {roll_type}",
+    "crk_not_found": "Aba do jogo não encontrada.",
+    "reset_btn_not_found": "Botão de resetar não encontrado. Verifique seu emulador.",
+    "reset_btn_found": "Botão de resetar encontrado.",
+    "reroll_start": "Iniciando giro automático.",
+    "orange_warning": "SOMENTE giros laranjas habilitados, giros roxos não serão considerados. \n",
+
+    "roll_success": "Girado com sucesso. Total: {counter} giros efetuados. {elapsed} tempo levado.",
+    "roll_partial_success": "Giro {counter}: {high_count} valores altos mas tipo incorreto - {rolled}. {elapsed} tempo levado.",
+    "roll_fail": "Giro {counter}: {high_count} valores altos. {elapsed} tempo levado.",
+
+    "reroll_stop": "Giro automático interrompido.",
+    "esc_pressed": "ESC pressionado - encerrando tarefa."
+}

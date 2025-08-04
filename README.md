@@ -17,7 +17,7 @@ If you wish to contribute towards the project by translating, please message me 
 - 🇧🇷 Português (Brasil)
 
 ## Steps to Use
-1) Turn on CRK with GPG.
+1) Turn on CRK with GPG / LDPlayer9 / MuMuPlayer.
 2) Go to beascuit reroll page. 
 3) Make sure all warning pop ups are gone. (>= 2 rolls, initial roll warnings)
 4) Select lines needed (>= lines) & roll type(s). 

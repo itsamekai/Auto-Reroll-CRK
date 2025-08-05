@@ -22,8 +22,9 @@ If you wish to contribute towards the project by translating, please message me 
 3) Make sure all warning pop ups are gone. (>= 2 rolls, initial roll warnings)
 4) Select lines needed (>= lines) & roll type(s). 
 5) Press ESC to stop.
-6) **IMPORTANT** If you are on LDPlayer, make sure you expand the side menu on the top right.
-7) **IMPORTANT** If you are on MuMuPlayer, make sure you rename your CRK emulator to 'CRKROLL' (do not add the ' in!)
+6) **IMPORTANT** If you are on GPG, make sure you use the emulator's full screen (F11) -> ALT TAB to reroller -> start reroll. (adds consistency)  
+7) **IMPORTANT** If you are on LDPlayer, make sure you expand the side menu on the top right.
+8) **IMPORTANT** If you are on MuMuPlayer, make sure you rename your CRK emulator to 'CRKROLL' (do not add the ' in!)
 
 ## Troubleshooting
 1) If unable to detect the reset button, rescale your resolution to 1920x1080, or put in your main monitor (if using more than 1). 

@@ -1,0 +1,62 @@
+{
+  "AmplifyBuff": "Tăng cường buff",
+  "DMGResistBypass": "Bỏ qua kháng sát thương",
+  "DMGResist": "Kháng sát thương",
+  "CRIT%": "Tỷ lệ chí mạng",
+  "ATK": "Tấn công",
+  "HP": "Máu",
+  "DEF": "Phòng thủ",
+  "ATKSPD": "Tốc độ tấn công",
+  "Cooldown": "Giảm thời gian hồi chiêu",
+  "DebuffResist": "Kháng hiệu ứng xấu",
+  "DarkDMG": "Sát thuơng nguyên tố Bóng Tối",
+  "IceDMG": "Sát thương nguyên tố Băng",
+  "SteelDMG": "Sát thương nguyên tố Thép",
+  "PoisonDMG": "Sát thương nguyên tố Độc",
+  "LightDMG": "Sát thương nguyên tố Ánh Sáng",
+  "ElecDMG": "Sát thương nguyên tố Điện",
+  "FireDMG": "Sát thương nguyên tố Lửa",
+  "EarthDMG": "Sát thương nguyên tố Đất",
+
+  "settings_roll_type": "Dòng cần roll",
+  "settings_roll_count": "Số lượng dòng cần roll",
+  "settings_orange_only": "Chỉ lấy dòng cam",
+  "settings_tainted_biscuit": "Có dùng Tainted Beascuit không?",
+  "settings_add_delay": "Thêm độ trễ",
+
+  "rolls_enabled": "Kích hoạt",
+  "rolls_disabled": "Vô hiệu hóa",
+
+  "start_button": "Bắt đầu",
+  "credit_name": "Thực hiện bởi: Kai | Discord: @boonkai",
+  "credit_server": "Discord: discord.gg/creamery",
+
+  "dropdown_select_rolls": "Chọn dòng cần roll",
+
+  "reroll_string": "Reroll",
+  "settings_string": "Cài đặt",
+  "instructions_string": "Hướng dẫn dùng",
+
+  "instruction_1": "1. Mở CRK bằng Google Play Games hoặc LDPlayer hoặc MuMuPlayer. (Đảm bảo CRK đang ở ngôn ngữ tiếng Anh)",
+  "instruction_2": "2. Đi đến trang roll Beascuits.",
+  "instruction_3": "3. Vô hiệu các thông báo hiện lên (Có chắc muốn roll?; 3 dòng trùng có muốn roll tiếp?).",
+  "instruction_4": "4. Điều chỉnh các thông số cần thiết trong Cài đặt.",
+  "instruction_5": "5. Ấn nút Start để bắt đầu. Ấn nút ESC để dừng lại.",
+
+  "non_selected": "Không có dòng nào được chọn.",
+  "tainted_error": "Tainted Beascuits chỉ hỗ trợ 3 dòng hoặc ít hơn.",
+  "already_running": "Tác vụ đang chạy.",
+  "selected_rolls": "Đã chọn dòng: {roll_type}",
+  "crk_not_found": "Không tìm thấy cửa sổ CRK.",
+  "reset_btn_not_found": "Kiểm tra lại giả lập, không tìm thấy nút Reset.",
+  "reset_btn_found": "Nút Reset đã được tìm thấy.",
+  "reroll_start": "Bắt đầu tự động reroll.",
+  "orange_warning": "Tool sẽ chỉ tính dòng cam (15bypass, 6cd,...) và bỏ qua dòng tím. \n",
+
+  "roll_success": "Đã thành công roll. Tổng: {counter} lần roll được thực hiện trong vòng {elapsed}.",
+  "roll_partial_success": "Roll được {counter}: {high_count} chỉ số cao nhưng sai dòng - {rolled}. tốn {elapsed}s.",
+  "roll_fail": "Roll được {counter}: {high_count} chỉ số trong vòng {elapsed}s.",
+
+  "reroll_stop": "Đã dừng tự động Reroll.",
+  "esc_pressed": "Phím Esc được ấn, ngưng tác vụ."
+}

@@ -10,8 +10,10 @@ AVAILABLE_LANGUAGES = {
     "繁體中文": "zh-TW", # Traditional Chinese
     "简体中文": "zh-CN",  # Simplified Chinese
     "ไทย": "th",
+    "Tiếng Việt": "vi",
     "Français": "fr",
     "Deutsch" : "de",
+    "Polski": "pl",
     "Português (Brasil)": "pt-BR"    
 }
 

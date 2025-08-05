@@ -6,7 +6,7 @@ _translator = Translator()
 
 AVAILABLE_LANGUAGES = {
     "English": "en",
-    "한국인": "kr",
+    "한국어": "kr",
     "繁體中文": "zh-TW", # Traditional Chinese
     "简体中文": "zh-CN",  # Simplified Chinese
     "ไทย": "th",

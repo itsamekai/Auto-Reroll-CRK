@@ -55,7 +55,7 @@ py main.py
 
 Thank you to the following individuals for contributing their time and effort to make this project accessible in multiple languages:
 
-- 🇰🇷 **한국인 (Korean)**: Mono - @monoxerses  
+- 🇰🇷 **한국어 (Korean)**: Mono - @monoxerses  
 - 🇹🇼 **繁體中文 (Traditional Chinese)**: JackyKuo (my goat)  
 - 🇨🇳 **简体中文 (Simplified Chinese)**: JackyKuo
 - 🇹🇭 **ไทย (Thai)**: Bushy - @bushy2018  

@@ -12,9 +12,11 @@ If you wish to contribute towards the project by translating, please message me 
 - 🇹🇼 繁體中文 (Traditional Chinese)  
 - 🇨🇳 简体中文 (Simplified Chinese)  
 - 🇹🇭 ไทย (Thai)  
+- 🇻🇳 Tiếng Việt (Vietnamese)
 - 🇫🇷 Français (French)  
 - 🇩🇪 Deutsch (German)  
 - 🇧🇷 Português (Brasil)
+- 🇵🇱 Polski (Polish)
 
 ## Steps to Use
 1) Turn on CRK with GPG / LDPlayer9 / MuMuPlayer.
@@ -60,6 +62,9 @@ Thank you to the following individuals for contributing their time and effort to
 - 🇹🇼 **繁體中文 (Traditional Chinese)**: JackyKuo (my goat)  
 - 🇨🇳 **简体中文 (Simplified Chinese)**: JackyKuo
 - 🇹🇭 **ไทย (Thai)**: Bushy - @bushy2018  
+- 🇻🇳 **Tiếng Việt (Vietnamese)**: Kazucon - @pathetic384
 - 🇫🇷 **Français (French)**: Luz - @luzushi  
 - 🇩🇪 **Deutsch (German)**: Maddy - @madeleineaddyson
 - 🇧🇷 **Português (Brasil)**: JJ - @jjftw1310
+- 🇵🇱 **Polski (Polish)**: rogue - @onesloweredeyes
+

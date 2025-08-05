@@ -1,0 +1,62 @@
+{
+     "AmplifyBuff": "AmplifyBuff",
+    "DMGResistBypass": "DMGResistBypass",
+    "DMGResist": "DMGResist",
+    "CRIT%": "CRIT%",
+    "ATK": "ATK",
+    "HP": "HP",
+    "DEF": "DEF",
+    "ATKSPD": "ATKSPD",
+    "Cooldown": "Cooldown",
+    "DebuffResist": "DebuffResist",
+    "DarkDMG": "DarkDMG",
+    "IceDMG": "IceDMG",
+    "SteelDMG": "SteelDMG",
+    "PoisonDMG": "PoisonDMG",
+    "LightDMG": "LightDMG",
+    "ElecDMG": "ElecDMG",
+    "FireDMG": "FireDMG",
+    "EarthDMG": "EarthDMG",
+
+    "settings_roll_type": "Typ losowanej rolki",
+    "settings_roll_count": "Numer losowań rolki",
+    "settings_orange_only": "Tylko pomarańczowe rolki",
+    "settings_tainted_biscuit": "Tainted Biscuit",
+    "settings_add_delay": "Dodaj opóźnienie",
+
+    "rolls_enabled": "Losowanie włączone",
+    "rolls_disabled": "Losowanie wyłączone",
+
+    "start_button": "START",
+    "credit_name": "Done by: Kai | Discord: @boonkai",
+    "credit_server": "Discord: discord.gg/creamery",
+
+    "dropdown_select_rolls": "Wybierz rolki",
+
+    "reroll_string": "Nitka ponownych losowań",
+    "settings_string": "Ustawienia",
+    "instructions_string": "Instrukcje",
+
+    "instruction_1": "1. Włącz Cookie Run Kingdom za pomocą Google Play Games, LDPlayer lub MuMuPlayer (Upenij się że język Cookie Run Kingdom jest ustawiony na Angielski[English])",
+    "instruction_2": "2. Idź do strony do losowania statystyk dla Beascuits", 
+    "instruction_3": "3. Wyłącz ostrzeżenia wyskakujące podczas losowania rolek na Beascuits", 
+    "instruction_4": "4. Zmodyfikuj ustawienia dla twoich potrzeb w zakładce ustawień", 
+    "instruction_5": "5. Naciśnij guzik START by zacząć rollowanie, naciśnij guzik ESC by przestać rollowanie",  
+
+    "non_selected": "Nie wybrano żadnych rolek", 
+    "tainted_error": "Tainted Beascuits mogą mieć wybrane tylko 3 linijki statystk rolek", 
+    "already_running": "Zadanie już się rozpoczeło", 
+    "selected_rolls": "Wybrane rolki: {roll_type}",
+    "crk_not_found": "Nie znaleziono okna z Cookie Run Kingdom", 
+    "reset_btn_not_found": "Guzik resetu nieznaleziony, sprawdź emulator", 
+    "reset_btn_found": "Znaleziono guzik resetu", 
+    "reroll_start": "Rozpoczęto automatycznie losowanie rolek", 
+    "orange_warning": "Tylko pomarańczowe rolki zostały włączone, fioletowe rolki nie będą zaliczane dla \n", 
+
+    "roll_success": "Rollowanie zakończone sukcesem, Sumując: wylosowano {counter} rolek", 
+    "roll_partial_success": "Wylosowano {counter} rolek: {high_count} rolek wysokiej wartości - {rolled}. {elapsed} mineło",
+    "roll_fail": "Wylosowano {counter} rolek: {high_count} rolek wysokiej wartości. {elapsed}s mineło", 
+
+    "reroll_stop": "Automatyczne losowanie rolek wstrzymane.",
+    "esc_pressed": "ESC naciśnięty - zadanie wstrzymano."
+}

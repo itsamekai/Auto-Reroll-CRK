@@ -45,7 +45,7 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, delay, tesseractA
         moveAndClick(crkWin, resetLoc) # start click
         time.sleep(1.14 + float(delay))
         value_screenshot = screenshotValues(crkWin, emu)
-        cropped = cropValueBoxes(value_screenshot, tainted_bool)
+        cropped = cropValueBoxes(value_screenshot, tainted_bool, emu)
         high_count, pos = getHighRarityCount(cropped, orange_bool)
         
         # check if the amount of purple / orange rolls is >= the no. of lines picked

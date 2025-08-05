@@ -15,11 +15,11 @@ gpg_roll_region = (400, 455, 275, 335)
 
 # region for LDPlayer.
 ldp_value_region = (940, 470, 105, 335)
-ldp_roll_region = (400, 470, 275, 335)
+ldp_roll_region = (395, 470, 275, 335)
 
 # region for Mumu.
-mumu_value_region = (975, 470, 105, 335)
-mumu_roll_region = (400, 470, 275, 335)
+mumu_value_region = (975, 480, 105, 335)
+mumu_roll_region = (400, 480, 275, 335)
 
 EMU_REGIONS = {
     "LDPlayer": (ldp_value_region, ldp_roll_region),
@@ -30,6 +30,7 @@ EMU_REGIONS = {
 # screenshot crk window to locate reset all button.
 def screenshotWindow(win):
     bbox = (win.left, win.top, win.right, win.bottom)
+    # ImageGrab.grab(bbox).save(os.path.join(WRITABLE_IMAGE_DIR, "crkWindows.jpeg"))
     return ImageGrab.grab(bbox)
 
 # get crk window and resize. prep for screenshot.

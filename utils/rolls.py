@@ -5,24 +5,24 @@ from utils.paths import *
 from collections import Counter
 
 CONST_GPG_ROLL_REGIONS = [
-    (10, 20, 275, 60), # box1 for value
-    (10, 105, 275, 140), # box 2 for value
-    (10, 190, 275, 225), # box 3 for value
-    (10, 275, 275, 310) # box 4 for value
+    (10, 15, 275, 65),    
+    (10, 100, 275, 150),   
+    (10, 185, 275, 235),  
+    (10, 270, 275, 320)  
 ]
 
 CONST_LDPLAYER_ROLL_REGIONS = [
-    (3, 23, 275, 60), # box1 for value
-    (3, 108, 275, 140), # box 2 for value
-    (3, 192, 275, 225), # box 3 for value
-    (3, 275, 275, 310) # box 4 for value
+    (0, 15, 275, 65),    
+    (0, 100, 275, 150),   
+    (0, 185, 275, 235),  
+    (0, 270, 275, 320)  
 ]
 
 CONST_MUMU_ROLL_REGIONS = [
-    (10, 25, 275, 63),    
+    (10, 15, 275, 65),    
     (10, 100, 275, 150),  
     (10, 185, 275, 235),  
-    (10, 275, 275, 325)  
+    (10, 270, 275, 320)  
 ]
 
 
@@ -53,6 +53,7 @@ def preprocessImage(img):
 
     np_img = np.array(img)
     norm_img = cv2.normalize(np_img, None, 0, 255, cv2.NORM_MINMAX)
+    # Image.fromarray(norm_img.astype(np.uint8)).save(os.path.join(WRITABLE_IMAGE_DIR, f"processed_cropped_box.jpeg"))
 
     return Image.fromarray(norm_img.astype(np.uint8))
 

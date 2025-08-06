@@ -10,7 +10,7 @@ from handler.state import *
 CONST_RESET_BUTTON_PATH = resource_path("template/reset_button.png")
 
 
-def run_task(roll_type, line_count, orange_bool, tainted_bool, delay, tesseractAPI, log):
+def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, delay, tesseractAPI, log):
     counter = 1
     set_translator_language()
     translator = get_translator()
@@ -51,7 +51,7 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, delay, tesseractA
         # check if the amount of purple / orange rolls is >= the no. of lines picked
         if (high_count >= int(line_count)):
             roll_screenshot = screenshotRoll(crkWin, emu)
-            rollResult, rolled = cropEnhanceRead(emu, pos, roll_type, line_count, roll_screenshot, tainted_bool, tesseractAPI)
+            rollResult, rolled = cropEnhanceRead(emu, pos, roll_type, line_count, roll_screenshot, tainted_bool, chopsticks_bool, tesseractAPI)
             if rollResult:
                 elapsed = round(time.time() - start, 2)
                 log(translator.text("roll_success", counter=counter, elapsed=elapsed))

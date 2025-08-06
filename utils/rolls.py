@@ -59,7 +59,7 @@ def preprocessImage(img):
 
 
 # do preprocessing for OCR.
-def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg, tesserectAPI):
+def enhanceBoxImageAndRead(pos, rollType, line_count, chopsticks, valueImg, tesserectAPI):
     finalRolls = []
     rolled = []
     processed = [preprocessImage(img) for img in valueImg] # pre-process all cropped images
@@ -73,14 +73,18 @@ def enhanceBoxImageAndRead(pos, rollType, line_count, valueImg, tesserectAPI):
     # unpacks the tuple as roll and idx and puts it in a new temp list.
     # checks the temp list if the roll is in the choosen array and pos in position array
     # get the frequency and return if n amt >= count
-    matched = [roll for roll, idx in rolled if roll in rollType and idx in pos]
+    matched = [roll for roll, idx in rolled if roll in rollType and idx in pos] 
     print(f"pos: {pos} \nrolled: {rolled}\nmatched: {matched}")
     freq = Counter(matched)
 
+    uniqueRolls = any(amt >= int(line_count) for amt in freq.values()) # covers unique rolls where >= line_count
+    chopsticks = len(matched) >= 2 and len(freq) >= 2 # this covers 1-1 or 1-2, etc
+    found = uniqueRolls or chopsticks
+    print(f"found match? - {found}")
     print(finalRolls)
-    return any(amt >= int(line_count) for amt in freq.values()), finalRolls # check if n amt >= line_count (determined by user)
+    return found, finalRolls # check if n amt >= line_count (determined by user)
 
 
-def cropEnhanceRead(emu, pos, rollType, lineCount, value_screenshot, tainted, tesseractAPI):
+def cropEnhanceRead(emu, pos, rollType, lineCount, value_screenshot, tainted, chopsticks, tesseractAPI):
     cropped = cropRollBoxes(emu, value_screenshot, tainted)
-    return enhanceBoxImageAndRead(pos, rollType, lineCount, cropped, tesseractAPI)
+    return enhanceBoxImageAndRead(pos, rollType, lineCount, chopsticks, cropped, tesseractAPI)

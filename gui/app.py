@@ -15,7 +15,7 @@ delay = [0, 0.1, 0.2, 0.3, 0.4, 0.5]
 
 # probably not a clean solution
 # added so I can just move the elements around in the array to reorder the UI
-widgets = ["Language", "RollType", "RollCount", "OrangeOnly", "Tainted", "Delay", "start", "log", "credit_name", "credit_server"]
+widgets = ["Language", "RollType", "RollCount", "Chopsticks", "OrangeOnly", "Tainted", "Delay", "start", "log", "credit_name", "credit_server"]
 
 # dynamically change languages
 translator = get_translator()
@@ -160,8 +160,14 @@ def createSettingsWidgets(settingsTab):
     tainted_var = tk.StringVar(value=translator.text("rolls_disabled"))
     en_dis_tainted = ttk.Combobox(settingsTab, textvariable=tainted_var, values=[translator.text("rolls_enabled"), translator.text("rolls_disabled")], state="readonly")
     en_dis_tainted.grid(row=widgets.index("Tainted"), column=1)
-    
-    
+
+
+    # chopstick is 1-1 roll
+    chopsticks = tk.Label(settingsTab, text=translator.text("settings_chopsticks"))
+    chopsticks.grid(row=widgets.index("Chopsticks"), column=0, padx=10, pady=5)
+    chopsticks_var = tk.StringVar(value=translator.text("rolls_disabled"))
+    en_dis_chopsticks = ttk.Combobox(settingsTab, textvariable=chopsticks_var, values=[translator.text("rolls_enabled"), translator.text("rolls_disabled")], state="readonly")
+    en_dis_chopsticks.grid(row=widgets.index("Chopsticks"), column=1)
 
     
     # Delay - in case OCR has error reading, manually adding a delay can allow more time for the 'Bling' to settle.
@@ -174,14 +180,17 @@ def createSettingsWidgets(settingsTab):
     setTranslateWidget("settings_roll_count", roll_count)
     setTranslateWidget("settings_add_delay", delay_choice)
     setTranslateWidget("settings_orange_only", orange_only)
+    setTranslateWidget("settings_chopsticks", chopsticks)
+    setTranslateWidget("settings_tainted_biscuit", tainted_label)
     setTranslateWidget("default_orange", orange_var)
     setTranslateWidget("default_tainted", tainted_var)
-    setTranslateWidget("settings_tainted_biscuit", tainted_label)
+    setTranslateWidget("default_chopsticks", chopsticks_var)
     setTranslateWidget("en_dis_orange", en_dis_orange)
     setTranslateWidget("en_dis_tainted", en_dis_tainted)
+    setTranslateWidget("en_dis_chopsticks", en_dis_chopsticks)
 
     
-    return line_var, orange_var, tainted_var, delay_var
+    return line_var, orange_var, tainted_var, chopsticks_var, delay_var
 
 
 # widgets for 'Instructions' tab
@@ -197,7 +206,7 @@ def createInstructionsWidgets(instructionsTab):
 def create_widgets(mainTab, settingsTab, instructionsTab, on_start_callback):
     roll_var = createSelectRollType(settingsTab, row=widgets.index("RollType")) 
     log_box, start_btn = createRerollWidgets(mainTab, on_start_callback)
-    line_var, orange_var, tainted_var, delay_var = createSettingsWidgets(settingsTab)
+    line_var, orange_var, tainted_var, chopsticks_var, delay_var = createSettingsWidgets(settingsTab)
     createInstructionsWidgets(instructionsTab)
 
     return {
@@ -205,6 +214,7 @@ def create_widgets(mainTab, settingsTab, instructionsTab, on_start_callback):
         "line_var": line_var,
         "orange_var": orange_var,
         "tainted_var": tainted_var,
+        "chopsticks_var": chopsticks_var,
         "delay_var": delay_var,
         "log_box": log_box,
         "start_button": start_btn

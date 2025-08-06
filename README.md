@@ -2,6 +2,7 @@
 1) Allows picking of **multiple rolls**. i.e if CD, ATK are picked and at least 2 lines, it will stop when it hits either 2 lines of CD or 2 lines of ATK. Doesn't work for 1/1. **(no limit to how many you pick!)**
 2) Tainted beascuit support.
 3) Orange rolls only option; this means it only stops if you roll _n_ amount of orange rolls. Purple does not count.
+5) Chopsticks - When enabled, it will stop if you high roll _one of each_ selected rolls. (minimum _n_ number of rolls, player determined.) Alternatively also works if its 1/1, 1/2, 1/3, 1/1/1, 1/1/1/1, etc. 
 4) Supports Google Play Games, LDPlayer9, MuMUPlayer. (not supporting more emulators!)
 
 ## Languages Available

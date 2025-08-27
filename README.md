@@ -50,7 +50,16 @@ source venv/bin/activate # or .\venv\Scripts\activate on Windows
 pip install -r requirements.txt
 ```
 
-2. run main.py to launch UI.
+2. Install tesserocr on venv by downloading the wheel file accordingly:
+```
+https://github.com/simonflueckiger/tesserocr-windows_build/releases
+https://pypi.org/project/tesserocr/
+
+> pip install <package_name>.whl
+
+```
+
+3. run main.py to launch UI.
 ```
 py main.py
 ```

@@ -14,7 +14,6 @@ pyinstaller
 
 # tesseract
 Tesseract-OCR/
-TesseractLib/
 
 # deploy
 deploy.bash

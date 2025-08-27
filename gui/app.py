@@ -6,7 +6,7 @@ ROLL_TYPES = [
     'AmplifyBuff', 'DMGResistBypass', 'DMGResist', 'CRIT%', 'ATK',
     'HP', 'DEF', 'ATKSPD', 'Cooldown', 'DebuffResist', 'DarkDMG',
     'IceDMG', 'SteelDMG', 'PoisonDMG', 'LightDMG', 'ElecDMG', 'FireDMG',
-    'EarthDMG'
+    'EarthDMG', 'WaterDMG'
 ]
 
 LINE_COUNTS = [2, 3, 4]

@@ -27,7 +27,6 @@ def set_tesseract_path():
 
 
 def get_writable_image_dir():
-
     if getattr(sys, 'frozen', False):
         # if bundled in app
         return os.path.expanduser("~/.reroll_images")

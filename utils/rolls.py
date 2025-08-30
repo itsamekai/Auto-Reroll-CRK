@@ -1,40 +1,19 @@
+from collections import Counter
+
 import cv2
 import numpy as np
 from PIL import Image, ImageEnhance
-from utils.paths import *
-from collections import Counter
 
-CONST_GPG_ROLL_REGIONS = [
-    (10, 15, 275, 65),    
-    (10, 100, 275, 150),   
-    (10, 185, 275, 235),  
-    (10, 270, 275, 320)  
+CONST_CRK_ROLL_REGIONS = [
+    (30, 25, 580, 90),
+    (30, 145, 580, 210),
+    (30, 265, 580, 330),
+    (30, 385, 580, 450)
 ]
-
-CONST_LDPLAYER_ROLL_REGIONS = [
-    (0, 15, 275, 65),    
-    (0, 100, 275, 150),   
-    (0, 185, 275, 235),  
-    (0, 270, 275, 320)  
-]
-
-CONST_MUMU_ROLL_REGIONS = [
-    (10, 15, 275, 65),    
-    (10, 100, 275, 150),  
-    (10, 185, 275, 235),  
-    (10, 270, 275, 320)  
-]
-
-
-EMU_CROPPED_REGIONS = {
-    "LDPlayer": CONST_LDPLAYER_ROLL_REGIONS,
-    "GPG": CONST_GPG_ROLL_REGIONS,
-    "Mumu": CONST_MUMU_ROLL_REGIONS
-}
 
 # crop initial roll image into 4 boxes for each roll.
-def cropRollBoxes(emu, rollImg, tainted):
-    crop_region = EMU_CROPPED_REGIONS[emu]
+def cropRollBoxes(rollImg, tainted):
+    crop_region = CONST_CRK_ROLL_REGIONS
     croppedBoxes = []
     if tainted:
         for box in crop_region[1:]:
@@ -42,7 +21,7 @@ def cropRollBoxes(emu, rollImg, tainted):
     else:
         for box in crop_region:
             croppedBoxes.append(rollImg.crop(box))
-            # rollImg.crop(box).save(os.path.join(WRITABLE_IMAGE_DIR, f"cropped_box{counter}.jpeg"))
+            # rollImg.crop(box).save(f"images/cropped_box{counter}.png")
     return croppedBoxes
 
 
@@ -53,7 +32,7 @@ def preprocessImage(img):
 
     np_img = np.array(img)
     norm_img = cv2.normalize(np_img, None, 0, 255, cv2.NORM_MINMAX)
-    # Image.fromarray(norm_img.astype(np.uint8)).save(os.path.join(WRITABLE_IMAGE_DIR, f"processed_cropped_box.jpeg"))
+    # Image.fromarray(norm_img.astype(np.uint8)).save(f"images/processed_cropped_box.png")
 
     return Image.fromarray(norm_img.astype(np.uint8))
 
@@ -85,6 +64,6 @@ def enhanceBoxImageAndRead(pos, rollType, line_count, chopsticks, valueImg, tess
     return found, finalRolls # check if n amt >= line_count (determined by user)
 
 
-def cropEnhanceRead(emu, pos, rollType, lineCount, value_screenshot, tainted, chopsticks, tesseractAPI):
-    cropped = cropRollBoxes(emu, value_screenshot, tainted)
+def cropEnhanceRead(pos, rollType, lineCount, value_screenshot, tainted, chopsticks, tesseractAPI):
+    cropped = cropRollBoxes(value_screenshot, tainted)
     return enhanceBoxImageAndRead(pos, rollType, lineCount, chopsticks, cropped, tesseractAPI)

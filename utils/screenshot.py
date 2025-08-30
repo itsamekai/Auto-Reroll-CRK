@@ -1,72 +1,88 @@
-import pyautogui as ag
-import pygetwindow as gw
-import time
-from PIL import ImageGrab
-from utils.paths import *
-
-crkWindowsName = ['CookieRun', '쿠키런', '姜饼人王国', '薑餅人王國', 'LDPlayer', 'CRKROLL']
-CONST_GPG_WIN_NAMES = ['CookieRun', '쿠키런', '姜饼人王国', '薑餅人王國']
-CONST_LDPLAYER_WIN_NAME = ['LDPlayer']
-CONST_MUMU_WIN_NAME = ['CRKROLL']
+import Quartz
+import numpy as np
+from AppKit import NSWorkspace
+from PIL import Image
 
 # regions for Google Play Games
-gpg_value_region = (975, 455, 105, 335)
-gpg_roll_region = (400, 455, 275, 335)
-
-# region for LDPlayer.
-ldp_value_region = (940, 470, 105, 335)
-ldp_roll_region = (395, 470, 275, 335)
-
-# region for Mumu.
-mumu_value_region = (975, 480, 105, 335)
-mumu_roll_region = (400, 480, 275, 335)
-
-EMU_REGIONS = {
-    "LDPlayer": (ldp_value_region, ldp_roll_region),
-    "GPG": (gpg_value_region, gpg_roll_region),
-    "Mumu": (mumu_value_region, mumu_roll_region)
-}
+crk_value_region = (1354, 774, 180, 483)
+crk_roll_region = (544, 774, 593, 483)
 
 # screenshot crk window to locate reset all button.
-def screenshotWindow(win):
-    bbox = (win.left, win.top, win.right, win.bottom)
-    # ImageGrab.grab(bbox).save(os.path.join(WRITABLE_IMAGE_DIR, "crkWindows.jpeg"))
-    return ImageGrab.grab(bbox)
+def screenshotWindow(bounds, pid, alterX=0, alterY=0, alterWidth=None, alterHeight=None):
+    x = float(bounds["X"] + alterX)
+    y = float(bounds["Y"] + alterY)
+    w = alterWidth or float(bounds["Width"])
+    h = alterHeight or float(bounds["Height"])
+    rect = Quartz.CGRectMake(x, y, w, h)
+
+    cgimg = Quartz.CGWindowListCreateImage(rect, Quartz.kCGWindowListOptionIncludingWindow,
+                                           int(pid), Quartz.kCGWindowImageDefault)
+
+    if not cgimg:
+        raise RuntimeError("CGWindowListCreateImage returned None. Check Screen Recording permission or the window ID.")
+
+    width = Quartz.CGImageGetWidth(cgimg)
+    height = Quartz.CGImageGetHeight(cgimg)
+    bytes_per_row = Quartz.CGImageGetBytesPerRow(cgimg)
+
+    provider = Quartz.CGImageGetDataProvider(cgimg)
+    data = Quartz.CGDataProviderCopyData(provider)
+    buf = np.frombuffer(data, dtype=np.uint8)
+
+    # Reshape with padding taken into account
+    buf = buf.reshape((height, bytes_per_row))
+    buf = buf[:, :width * 4]  # drop padding bytes
+    buf = buf.reshape((height, width, 4))
+
+    # macOS CGImage data is usually BGRA
+    buf = buf.reshape((height, width, 4))
+    # Convert BGRA → RGBA
+    buf = buf[:, :, [2, 1, 0, 3]]
+
+    img = Image.fromarray(buf, 'RGBA')
+    return img
 
 # get crk window and resize. prep for screenshot.
 def findAndResize():
-    for win in gw.getAllTitles():
-        if any(winName in win for winName in crkWindowsName):
-            crWindow = gw.getWindowsWithTitle(win)
-            crWindow[0].resizeTo(1500, 1000)
-            print(f"Position: ({crWindow[0].left}, {crWindow[0].top})")
-            print(f"Size: {crWindow[0].width}x{crWindow[0].height}")
-            crWindow[0].activate()
-            # partial check.
-            emu = (
-                'GPG' if any(name in win for name in CONST_GPG_WIN_NAMES)
-                else 'LDPlayer' if any(name in win for name in CONST_LDPLAYER_WIN_NAME)
-                else 'Mumu' if any(name in win for name in CONST_MUMU_WIN_NAME)
-                else None
+    workspace = NSWorkspace.sharedWorkspace()
+    apps = workspace.runningApplications()
+    for app in apps:
+        if app.localizedName() == "Cookie Run: Kingdom":
+            pid = app.processIdentifier()
+            print(pid)
+            windows = Quartz.CGWindowListCopyWindowInfo(
+                Quartz.kCGWindowListOptionOnScreenOnly,
+                Quartz.kCGNullWindowID
             )
-            time.sleep(1)
-            
-            return crWindow[0], emu
-    return None, None
+            for w in windows:
+                if w['kCGWindowOwnerPID'] == pid:
+                    print(w['kCGWindowBounds'])
+                    return w['kCGWindowBounds'], w['kCGWindowNumber']  # x, y, width, height
+    return None
 
 # type of roll. CD, ATK, etc.
 # makes use of the emu counts to determine, since future would further support more
-def screenshotRoll(win, emu):
-    x, y, width, height = EMU_REGIONS[emu][1]
-    # ag.screenshot(region=(win.left + x, win.top + y, width, height)).save(os.path.join(WRITABLE_IMAGE_DIR, "roll.jpeg"))
-    return ag.screenshot(region=(win.left + x, win.top + y, width, height))
+def screenshotRoll(win, pid, scale_x, scale_y):
+    x, y, width, height = crk_roll_region
+    x = x // scale_x
+    y = y // scale_y
+    width = width // scale_x
+    height = height // scale_y
+    img = screenshotWindow(win, pid, x, y, width, height)
+    # img.save("images/roll.png")
+    return img
 
 
 # cropped size is 275 x 335.
-def screenshotValues(win, emu):
-    x, y, width, height = EMU_REGIONS[emu][0]
-    # ag.screenshot(region=(win.left + x, win.top + y, width, height)).save(os.path.join(WRITABLE_IMAGE_DIR, "value.jpeg"))
-    return ag.screenshot(region=(win.left + x, win.top + y, width, height))
+def screenshotValues(win, pid, scale_x, scale_y):
+    x, y, width, height = crk_value_region
+    x = x // scale_x
+    y = y // scale_y
+    width = width // scale_x
+    height = height // scale_y
+    img = screenshotWindow(win, pid, x, y, width, height)
+    # img.save("images/value.png")
+    return img
     
 
 

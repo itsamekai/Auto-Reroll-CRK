@@ -1,17 +1,17 @@
 import atexit
+
+from utils.paths import resource_path
+
 try:
     from tesserocr import PyTessBaseAPI
 except ImportError as e:
     PyTessBaseAPI = None
     print("tessocr not imported properly.")
 
-from utils.paths import resource_path
-
-
-
 api = None
 
-# exit tesserocr safely 
+
+# exit tesserocr safely
 def cleanup_tesseract():
     try:
         api.End()

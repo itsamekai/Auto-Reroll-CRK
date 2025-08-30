@@ -16,7 +16,7 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
     translator = get_translator()
     
     # init crk window from gpg
-    crkWin, emu = findAndResize()
+    crkWin, pid = findAndResize()
     # print(f"emulator: {emu}")
     if not crkWin:
         log(translator.text("crk_not_found"))
@@ -24,7 +24,14 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
         return
     
     # get the reset button location coordinates
-    crkImage = screenshotWindow(crkWin)
+    crkImage = screenshotWindow(crkWin, pid)
+    # crkImage.save("images/screenshot.png")
+
+    # retrieve the scale to convert from point to pixels
+    imgWidth, imgHeight = crkImage.size
+    scale_x = imgWidth / crkWin["Width"]
+    scale_y = imgHeight / crkWin["Height"]
+
     resetLoc = findResetButton(CONST_RESET_BUTTON_PATH, crkImage)
     print(f"reset button location: {resetLoc}")
 
@@ -36,22 +43,21 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
     else:
         log(translator.text("reset_btn_found"))
         log(translator.text("reroll_start")) 
-        log(f"Emulator: {emu}")
-        if (orange_bool):
+        if orange_bool:
             log(translator.text("orange_warning"))
 
     while is_running():
         start = time.time()
-        moveAndClick(crkWin, resetLoc) # start click
+        moveAndClick(crkWin, resetLoc, scale_x, scale_y) # start click
         time.sleep(1.14 + float(delay))
-        value_screenshot = screenshotValues(crkWin, emu)
-        cropped = cropValueBoxes(value_screenshot, tainted_bool, emu)
+        value_screenshot = screenshotValues(crkWin, pid, scale_x, scale_y)
+        cropped = cropValueBoxes(value_screenshot, tainted_bool)
         high_count, pos = getHighRarityCount(cropped, orange_bool)
-        
+
         # check if the amount of purple / orange rolls is >= the no. of lines picked
-        if (high_count >= int(line_count)):
-            roll_screenshot = screenshotRoll(crkWin, emu)
-            rollResult, rolled = cropEnhanceRead(emu, pos, roll_type, line_count, roll_screenshot, tainted_bool, chopsticks_bool, tesseractAPI)
+        if high_count >= int(line_count):
+            roll_screenshot = screenshotRoll(crkWin, pid, scale_x, scale_y)
+            rollResult, rolled = cropEnhanceRead(pos, roll_type, line_count, roll_screenshot, tainted_bool, chopsticks_bool, tesseractAPI)
             if rollResult:
                 elapsed = round(time.time() - start, 2)
                 log(translator.text("roll_success", counter=counter, elapsed=elapsed))
@@ -62,7 +68,7 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
                 log(translator.text("roll_partial_success", counter=counter, high_count=high_count, rolled=translated, elapsed=elapsed))
                 counter+= 1
         else:
-            elapsed = round(time.time() - start, 2) 
+            elapsed = round(time.time() - start, 2)
             log(translator.text("roll_fail", counter=counter, high_count=high_count, elapsed=elapsed))
             counter+= 1
 

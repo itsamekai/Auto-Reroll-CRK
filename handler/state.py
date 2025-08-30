@@ -33,7 +33,7 @@ def set_lang(new_lang):
     global _lang
     _lang = new_lang
 
-def setTranslateWidget(key, value):
+def set_translate_widget(key, value):
     global _translate_widgets
     _translate_widgets[key] = value
 

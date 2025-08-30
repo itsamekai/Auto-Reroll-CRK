@@ -63,14 +63,14 @@ def createRerollWidgets(mainTab, on_start_callback):
     log_box.grid(row=widgets.index("log"), column=0, columnspan=2, padx=10, pady=5)
     log_box.config(font=("TkDefaultFont", 12))
 
-    scrollbar = tk.Scrollbar(mainTab, command=log_box.yview)
+    scrollbar = ttk.Scrollbar(mainTab, command=log_box.yview)
     log_box.config(yscrollcommand=scrollbar.set)
     scrollbar.grid(row=widgets.index("log"), column=2, sticky='ns')
 
-    creditName = tk.Label(mainTab, text=translator.text("credit_name"), font=("Arial", 11))
+    creditName = ttk.Label(mainTab, text=translator.text("credit_name"), font=("Arial", 11))
     creditName.grid(row=widgets.index("credit_name"), column=0, columnspan=2, sticky='w', padx=10)
 
-    creditServer = tk.Label(mainTab, text=translator.text("credit_server"), font=("Arial", 11))
+    creditServer = ttk.Label(mainTab, text=translator.text("credit_server"), font=("Arial", 11))
     creditServer.grid(row=widgets.index("credit_server"), column=0, sticky='w', padx=10)
 
     set_translate_widget("start", start_btn)

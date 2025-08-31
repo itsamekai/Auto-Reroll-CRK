@@ -37,7 +37,8 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
         log(translator.text("reset_btn_found"))
         log(translator.text("reroll_start")) 
         log(f"Emulator: {emu}")
-        if (orange_bool):
+        log(translator.text("selected_rolls", roll_type=", ".join([translator.text(roll) for roll in roll_type])))
+        if orange_bool:
             log(translator.text("orange_warning"))
 
     while is_running():
@@ -47,7 +48,7 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
         value_screenshot = screenshotValues(crkWin, emu)
         cropped = cropValueBoxes(value_screenshot, tainted_bool, emu)
         high_count, pos = getHighRarityCount(cropped, orange_bool)
-        
+
         # check if the amount of purple / orange rolls is >= the no. of lines picked
         if (high_count >= int(line_count)):
             roll_screenshot = screenshotRoll(crkWin, emu)
@@ -62,7 +63,7 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
                 log(translator.text("roll_partial_success", counter=counter, high_count=high_count, rolled=translated, elapsed=elapsed))
                 counter+= 1
         else:
-            elapsed = round(time.time() - start, 2) 
+            elapsed = round(time.time() - start, 2)
             log(translator.text("roll_fail", counter=counter, high_count=high_count, elapsed=elapsed))
             counter+= 1
 

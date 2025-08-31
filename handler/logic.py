@@ -42,7 +42,8 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
     
     else:
         log(translator.text("reset_btn_found"))
-        log(translator.text("reroll_start")) 
+        log(translator.text("reroll_start"))
+        log(translator.text("selected_rolls", roll_type=", ".join([translator.text(roll) for roll in roll_type])))
         if orange_bool:
             log(translator.text("orange_warning"))
 

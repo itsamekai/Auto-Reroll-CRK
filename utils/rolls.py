@@ -57,8 +57,8 @@ def enhanceBoxImageAndRead(pos, rollType, line_count, chopsticks, valueImg, tess
     freq = Counter(matched)
 
     uniqueRolls = any(amt >= int(line_count) for amt in freq.values()) # covers unique rolls where >= line_count
-    chopsticks = len(matched) >= 2 and len(freq) >= 2 # this covers 1-1 or 1-2, etc
-    found = uniqueRolls or chopsticks
+    chopstickRolls = len(matched) >= 2 and len(freq) >= 2 # this covers 1-1 or 1-2, etc
+    found = chopstickRolls or uniqueRolls if chopsticks else uniqueRolls
     print(f"found match? - {found}")
     print(finalRolls)
     return found, finalRolls # check if n amt >= line_count (determined by user)

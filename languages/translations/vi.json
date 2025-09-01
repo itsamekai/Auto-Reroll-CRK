@@ -25,6 +25,8 @@
   "settings_orange_only": "Chỉ lấy dòng cam",
   "settings_tainted_biscuit": "Có dùng Tainted Beascuit không?",
   "settings_add_delay": "Thêm độ trễ",
+  "settings_roll_amount": "No. of Rolls:",
+  "roll_amount_instruction": "Leave at 0 to roll non-stop.",
 
   "rolls_enabled": "Kích hoạt",
   "rolls_disabled": "Vô hiệu hóa",

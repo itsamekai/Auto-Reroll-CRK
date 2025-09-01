@@ -26,6 +26,8 @@
     "settings_orange_only": "只要橘色数值",
     "settings_tainted_biscuit": "野兽脆饼",
     "settings_add_delay": "增加读取延迟",
+    "settings_roll_amount": "No. of Rolls:",
+    "roll_amount_instruction": "Leave at 0 to roll non-stop.",
 
     "rolls_enabled": "启用",
     "rolls_disabled": "停用",

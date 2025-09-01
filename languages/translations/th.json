@@ -25,13 +25,15 @@
     "settings_orange_only": "ช่องสีส้มเท่านั้น",
     "settings_tainted_biscuit": "บิสกิตบีสยีสต์",
     "settings_add_delay": "เพิ่มระยะเวลา",
+    "settings_roll_amount": "No. of Rolls:",
+    "roll_amount_instruction": "Leave at 0 to roll non-stop.",
 
     "rolls_enabled": "เปิดการใช้งาน",
     "rolls_disabled": "ปิดการใช้งาน",
 
     "start_button": "เริ่มการทำงาน",
     "credit_name": "จัดทำโดย: Kai | Discord: @boonkai",
-    
+
     "dropdown_select_rolls": "เลือก roll", 
 
     "reroll_string": "reroll",

@@ -228,7 +228,7 @@ def createSettingsWidgets(settingsTab):
     setTranslateWidget("default_chopsticks", chopsticks_var)
     setTranslateWidget("en_dis_orange", en_dis_orange)
     setTranslateWidget("en_dis_tainted", en_dis_tainted)
-    setTranslateWidget("en_dis_chopsticks", en_dis_chopsticks)
+    setTranslateWidget("en_dis_chopsticks", en_dis_chopsticks)  
 
     
     return line_var, orange_var, tainted_var, chopsticks_var, amount_var, delay_var

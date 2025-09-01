@@ -25,6 +25,8 @@
     "settings_orange_only": "somente Giros Laranjas",
     "settings_tainted_biscuit": "Beascuit Tainted",
     "settings_add_delay": "Adicionar Atraso",
+    "settings_roll_amount": "No. of Rolls:",
+    "roll_amount_instruction": "Leave at 0 to roll non-stop.",
 
     "rolls_enabled": "Habilitado",
     "rolls_disabled": "Desabilitado",

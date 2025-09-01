@@ -25,6 +25,8 @@
     "settings_orange_only": "nur goldene Bonuseffekte",
     "settings_tainted_biscuit": "Biest-Rohkeks",
     "settings_add_delay": "Verzögerung hinzufügen",
+    "settings_roll_amount": "No. of Rolls:",
+    "roll_amount_instruction": "Leave at 0 to roll non-stop.",
 
     "rolls_enabled": "Funktionsfähig",
     "rolls_disabled": "Funktionsunfähig",

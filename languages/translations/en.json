@@ -46,11 +46,13 @@
     "instruction_3": "3. Disable warning pop-ups on beascuit warnings.",
     "instruction_4": "4. Modify settings accordingly in settings tab.",
     "instruction_5": "5. Start button to start. ESC key to stop.",
-
+    
+    "invalid_amount": "Only numbers are accepted for no. of rolls.",
     "non_selected": "No rolls selected.",
     "tainted_error": "Tainted Beascuits only supports 3 or fewer lines.",
     "already_running": "Task already running.",
     "selected_rolls": "Selected rolls: {roll_type}",
+    "selected_amount": "Number of rolls: {roll_amount}",
     "crk_not_found": "CRK window not found.",
     "reset_btn_not_found": "Reset button not found. Check emulator.",
     "reset_btn_found": "Reset button found.",
@@ -61,6 +63,6 @@
     "roll_partial_success": "Roll {counter}: {high_count} high values but wrong rolls - {rolled}. {elapsed} time taken.",
     "roll_fail": "Roll {counter}: {high_count} high values. {elapsed}s time taken.",
 
-    "reroll_stop": "Auto Reroll stopped.",
+    "reroll_stop": "Auto Reroll stopped. {roll_amount} rolls completed.",
     "esc_pressed": "ESC pressed - stopping task."
 }

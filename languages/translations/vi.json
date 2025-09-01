@@ -33,6 +33,7 @@
 
   "start_button": "Bắt đầu",
   "credit_name": "Thực hiện bởi: Kai | Discord: @boonkai",
+  "support_desc": "Support me here by donating:",
 
   "dropdown_select_rolls": "Chọn dòng cần roll",
 
@@ -46,10 +47,12 @@
   "instruction_4": "4. Điều chỉnh các thông số cần thiết trong Cài đặt.",
   "instruction_5": "5. Ấn nút Start để bắt đầu. Ấn nút ESC để dừng lại.",
 
+  "invalid_amount": "Only numbers are accepted for no. of rolls.",
   "non_selected": "Không có dòng nào được chọn.",
   "tainted_error": "Tainted Beascuits chỉ hỗ trợ 3 dòng hoặc ít hơn.",
   "already_running": "Tác vụ đang chạy.",
   "selected_rolls": "Đã chọn dòng: {roll_type}",
+  "selected_amount": "Number of rolls: {roll_amount}",
   "crk_not_found": "Không tìm thấy cửa sổ CRK.",
   "reset_btn_not_found": "Kiểm tra lại giả lập, không tìm thấy nút Reset.",
   "reset_btn_found": "Nút Reset đã được tìm thấy.",
@@ -60,6 +63,6 @@
   "roll_partial_success": "Roll được {counter}: {high_count} chỉ số cao nhưng sai dòng - {rolled}. tốn {elapsed}s.",
   "roll_fail": "Roll được {counter}: {high_count} chỉ số trong vòng {elapsed}s.",
 
-  "reroll_stop": "Đã dừng tự động Reroll.",
+  "reroll_stop": "Auto Reroll stopped. {roll_amount} rolls completed.",
   "esc_pressed": "Phím Esc được ấn, ngưng tác vụ."
 }

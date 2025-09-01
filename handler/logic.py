@@ -10,7 +10,7 @@ from handler.state import *
 CONST_RESET_BUTTON_PATH = resource_path("template/reset_button.png")
 
 
-def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, delay, tesseractAPI, log):
+def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, roll_amount, delay, tesseractAPI, log):
     counter = 1
     set_translator_language()
     translator = get_translator()
@@ -31,17 +31,23 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
     if not isinstance(resetLoc, tuple):
         log(translator.text("reset_btn_not_found"))
         set_running(False)
-        return
+        return  
     
     else:
         log(translator.text("reset_btn_found"))
         log(translator.text("reroll_start")) 
         log(f"Emulator: {emu}")
         log(translator.text("selected_rolls", roll_type=", ".join([translator.text(roll) for roll in roll_type])))
+        log(translator.text("selected_amount", roll_amount=roll_amount))
         if orange_bool:
             log(translator.text("orange_warning"))
 
+    # no. of times to roll
+    roll_limit = int(roll_amount)
+
     while is_running():
+        if roll_limit > 0 and counter > roll_limit:
+            break
         start = time.time()
         moveAndClick(crkWin, resetLoc) # start click
         time.sleep(1.14 + float(delay))
@@ -67,5 +73,5 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
             log(translator.text("roll_fail", counter=counter, high_count=high_count, elapsed=elapsed))
             counter+= 1
 
-    log(translator.text("reroll_stop"))
+    log(translator.text("reroll_stop", roll_amount=counter))
     set_running(False)

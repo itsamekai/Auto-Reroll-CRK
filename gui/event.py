@@ -2,14 +2,23 @@ import threading
 from handler.listener import start_esc_listener
 from handler.logic import run_task
 from handler.state import is_running, set_running, set_translator_language, get_translator
+import re
 
+# ensure that only integers > 0 are given
+pattern = r"^(0|[1-9]\d*)$"
 
-def on_start(roll_var, line_var, orange_var, tainted_var, chopsticks_var, delay_var, log, tesseractAPI):
+def on_start(roll_var, line_var, orange_var, tainted_var, chopsticks_var, roll_amount_var, delay_var, log, tesseractAPI):
     set_translator_language()
     translator = get_translator()
 
     if is_running():
         log("Task already running.")
+        return
+
+    # check roll amount to ensure its valid. 0 = roll forever
+    roll_amount = roll_amount_var.get()
+    if not re.match(pattern, roll_amount):
+        log(translator.text("invalid_amount"))
         return
 
     # roll type returns in a tuple, i.e. 'ATK', tkinter.Booleanvar. check the 2nd.
@@ -34,14 +43,14 @@ def on_start(roll_var, line_var, orange_var, tainted_var, chopsticks_var, delay_
 
     threading.Thread(
         target=run_task,
-        args=(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, delay, tesseractAPI, log),
+        args=(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, roll_amount, delay, tesseractAPI, log),
         daemon=True
     ).start()
 
 
-def run_wrapper(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, delay, tesseractAPI, log_fn):
+def run_wrapper(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, roll_amount, delay, tesseractAPI, log_fn):
     try:
-        run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, delay, tesseractAPI, log_fn)
+        run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, roll_amount, delay, tesseractAPI, log_fn)
     finally:
         set_running(False)
 

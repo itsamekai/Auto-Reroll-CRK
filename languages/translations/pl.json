@@ -33,6 +33,7 @@
 
     "start_button": "START",
     "credit_name": "Done by: Kai | Discord: @boonkai",
+    "support_desc": "Support me here by donating:",
 
     "dropdown_select_rolls": "Wybierz rolki",
 
@@ -46,10 +47,12 @@
     "instruction_4": "4. Zmodyfikuj ustawienia dla twoich potrzeb w zakładce ustawień", 
     "instruction_5": "5. Naciśnij guzik START by zacząć rollowanie, naciśnij guzik ESC by przestać rollowanie",  
 
+    "invalid_amount": "Only numbers are accepted for no. of rolls.",
     "non_selected": "Nie wybrano żadnych rolek", 
     "tainted_error": "Tainted Beascuits mogą mieć wybrane tylko 3 linijki statystk rolek", 
     "already_running": "Zadanie już się rozpoczeło", 
     "selected_rolls": "Wybrane rolki: {roll_type}",
+    "selected_amount": "Number of rolls: {roll_amount}",
     "crk_not_found": "Nie znaleziono okna z Cookie Run Kingdom", 
     "reset_btn_not_found": "Guzik resetu nieznaleziony, sprawdź emulator", 
     "reset_btn_found": "Znaleziono guzik resetu", 
@@ -58,8 +61,8 @@
 
     "roll_success": "Rollowanie zakończone sukcesem, Sumując: wylosowano {counter} rolek", 
     "roll_partial_success": "Wylosowano {counter} rolek: {high_count} rolek wysokiej wartości - {rolled}. {elapsed} mineło",
-    "roll_fail": "Wylosowano {counter} rolek: {high_count} rolek wysokiej wartości. {elapsed}s mineło", 
-
-    "reroll_stop": "Automatyczne losowanie rolek wstrzymane.",
+    "roll_fail": "Wylosowano {counter} rolek: {high_count} rolek wysokiej wartości. {elapsed}s mineło",
+     
+    "reroll_stop": "Auto Reroll stopped. {roll_amount} rolls completed.",
     "esc_pressed": "ESC naciśnięty - zadanie wstrzymano."
 }

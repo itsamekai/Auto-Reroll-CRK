@@ -42,7 +42,7 @@ def main():
 
     # pass the variables & log fn
     def start_callback():
-        on_start(widgets["roll_var"], widgets["line_var"], widgets["orange_var"], widgets["tainted_var"], widgets["chopsticks_var"], widgets["delay_var"], log, tesseractAPI)
+        on_start(widgets["roll_var"], widgets["line_var"], widgets["orange_var"], widgets["tainted_var"], widgets["chopsticks_var"], widgets["amount_var"], widgets["delay_var"], log, tesseractAPI)
 
     widgets = create_widgets(mainTab, settingsTab, instructionsTab, start_callback)
     log_box = widgets["log_box"]

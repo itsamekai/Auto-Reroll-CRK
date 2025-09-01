@@ -33,6 +33,7 @@
 
     "start_button": "Beginnen",
     "credit_name": "codiert von Kai | Discord: @boonkai",
+    "support_desc": "Support me here by donating:",
 
     "dropdown_select_rolls": "Bonuseffekte auswählen",
 
@@ -46,10 +47,12 @@
     "instruction_4": "4. Ändern Sie die Einstellungen entsprechend in Einstellungen.",
     "instruction_5": "5. Beginn-Knopf, um die Zurücksetzung zu anfangen. ESC-Knopf, um die Zurücksetzung zu aufhalten.",
 
+    "invalid_amount": "Only numbers are accepted for no. of rolls.",
     "non_selected": "Keine Bonuseffekte ausgewählt.",
     "tainted_error": "Biest-Rohkekse nutzen nur 3 oder wenigere Bonuseffekte-Mengen.",
     "already_running": "Aufgabe ist schon laufend.",
     "selected_rolls": "Ausgewählte Bonuseffekte: {roll_type}",
+    "selected_amount": "Number of rolls: {roll_amount}",
     "crk_not_found": "CRK-Ausschnitt nicht gefunden.",
     "reset_btn_not_found": "Zurücksetzung-Knopf_nicht_gefunden. Überprüfen den Emulator.",
     "reset_btn_found": "Zurücksetzung-Knopf ist gefunden.",
@@ -60,6 +63,6 @@
     "roll_partial_success": "Zurücksetzung {counter}: {high_count} höhe_Prozente, falsche Bonuseffekte - {rolled}. {elapsed} verbringt.",
     "roll_fail": "Zurücksetzung {counter}: {high_count} höhe_Prozente. {elapsed} verbringt.",
 
-    "reroll_stop": "Zurücksetzung ist aufgehalten.",
+    "reroll_stop": "Auto Reroll stopped. {roll_amount} rolls completed.",
     "esc_pressed": "ESC-Knopf gedrückt- Zurücksetzung aufgehaltet."
 }

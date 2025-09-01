@@ -1,5 +1,4 @@
 {
-
     "AmplifyBuff": "增益效果增加",
     "DMGResistBypass": "伤害抵抗无视",
     "DMGResist": "伤害抵抗",
@@ -34,10 +33,11 @@
 
     "start_button": "开始",
     "credit_name": "开发人: Kai | Discord: @boonkai",
+    "support_desc": "Support me here by donating:",
 
-  "dropdown_select_rolls": "选取重置",
+    "dropdown_select_rolls": "选取重置",
 
-   "reroll_string": "重置",
+    "reroll_string": "重置",
     "settings_string": "设定选项",
     "instructions_string": "使用说明",
 
@@ -47,10 +47,12 @@
     "instruction_4": "4. 在设置选项调整设定参数",
     "instruction_5": "5. 开始按钮自动重置脆饼. ESC按键停止.",
 
+    "invalid_amount": "Only numbers are accepted for no. of rolls.",
     "non_selected": "无重置次数选取.",
     "tainted_error": "野兽脆饼只支援 3以下的行数.",
     "already_running": "已有排程执行中.",
     "selected_rolls": "选取重置: {roll_type}",
+    "selected_amount": "Number of rolls: {roll_amount}",
     "crk_not_found": "未找到姜饼人王国视窗.",
     "reset_btn_not_found": "未发现重置按钮. 请检查模拟器.",
     "reset_btn_found": "发现重置按钮.",
@@ -61,5 +63,6 @@
     "roll_partial_success": " {counter}: {high_count} 高数值但错误的重置属性 - {rolled}. 花费时间 {elapsed}.",
     "roll_fail": "重置 {counter}: {high_count} 高数值. 花费时间{elapsed}s .",
 
-    "reroll_stop": "自动重置停止."
+    "reroll_stop": "Auto Reroll stopped. {roll_amount} rolls completed.",
+    "esc_pressed": "按下ESC - 停止排程."
 }

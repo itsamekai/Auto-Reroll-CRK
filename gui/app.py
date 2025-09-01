@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from handler.state import *
+import webbrowser
 
 ROLL_TYPES = [
     'AmplifyBuff', 'DMGResistBypass', 'DMGResist', 'CRIT%', 'ATK',
@@ -13,9 +14,12 @@ LINE_COUNTS = [2, 3, 4]
 
 delay = [0, 0.1, 0.2, 0.3, 0.4, 0.5]
 
+CONST_DISC_SERVER = "https://discord.gg/creamery"
+CONST_SUPPORT_LINK = "https://ko-fi.com/boonkai/tip"
+
 # probably not a clean solution
 # added so I can just move the elements around in the array to reorder the UI
-widgets = ["Language", "RollType", "RollCount", "Chopsticks", "OrangeOnly", "Tainted", "Delay", "start", "log", "credit_name", "credit_server"]
+widgets = ["Language", "RollType", "RollCount", "Chopsticks", "OrangeOnly", "Tainted", "RollAmount", "Delay", "start", "log", "credit_name", "credit_server", "support_name"]
 
 # dynamically change languages
 translator = get_translator()
@@ -67,10 +71,16 @@ def createRerollWidgets(mainTab, on_start_callback):
     scrollbar.grid(row=widgets.index("log"), column=2, sticky='ns')
 
     creditName = tk.Label(mainTab, text=translator.text("credit_name"), font=("Arial", 11))
-    creditName.grid(row=widgets.index("credit_name"), column=0, columnspan=2, sticky='w', padx=10)
+    creditName.grid(row=widgets.index("credit_name"), column=0, columnspan=2, sticky='w', padx=10, pady=5)
 
-    creditServer = tk.Label(mainTab, text=translator.text("credit_server"), font=("Arial", 11))
-    creditServer.grid(row=widgets.index("credit_server"), column=0, sticky='w', padx=10)
+    # serverLabel = tk.Label(mainTab, text="Discord:", font=("Arial", 11)).grid(row=widgets.index("credit_server"), column = 0, sticky='w', padx=10)
+    creditServer = tk.Label(mainTab, text=translator.text("credit_server"), font=("Arial", 11), fg="blue", cursor="heart")
+    creditServer.bind("<Button-1>", lambda e: webbrowser.open_new(url=CONST_DISC_SERVER))
+    creditServer.grid(row=widgets.index("credit_server"), column=0, sticky='w', padx=10, pady=5)
+    
+    supportName = tk.Label(mainTab, text=translator.text("support_desc"), font=("Arial", 11))
+    supportName.bind("<Button-1>", lambda e: webbrowser.open_new(url=CONST_SUPPORT_LINK))
+    supportName.grid(row=widgets.index("support_name"), column=0, sticky='w', padx=10, pady=5)
    
     setTranslateWidget("start", start_btn)
     setTranslateWidget("credit_name", creditName)
@@ -169,7 +179,17 @@ def createSettingsWidgets(settingsTab):
     en_dis_chopsticks = ttk.Combobox(settingsTab, textvariable=chopsticks_var, values=[translator.text("rolls_enabled"), translator.text("rolls_disabled")], state="readonly")
     en_dis_chopsticks.grid(row=widgets.index("Chopsticks"), column=1)
 
-    
+
+    # Roll Amount - no. of times to roll
+    roll_amount = tk.Label(settingsTab, text=translator.text("settings_roll_amount"))
+    roll_amount.grid(row=widgets.index("RollAmount"), column=0, padx=10, pady=5)
+    amount_var = tk.StringVar(value=0)
+    amount_box = tk.Entry(settingsTab, textvariable=amount_var)
+    amount_box.grid(row=widgets.index("RollAmount"), column=1, sticky="ew")
+    roll_instruction = tk.Label(settingsTab, text=translator.text("roll_amount_instruction"))
+    roll_instruction.grid(row=widgets.index("RollAmount"), column = 2, padx=10, pady=5)
+
+
     # Delay - in case OCR has error reading, manually adding a delay can allow more time for the 'Bling' to settle.
     delay_choice = tk.Label(settingsTab, text=translator.text("settings_add_delay"))
     delay_choice.grid(row=widgets.index("Delay"), column=0, padx=10, pady=5)
@@ -182,6 +202,8 @@ def createSettingsWidgets(settingsTab):
     setTranslateWidget("settings_orange_only", orange_only)
     setTranslateWidget("settings_chopsticks", chopsticks)
     setTranslateWidget("settings_tainted_biscuit", tainted_label)
+    setTranslateWidget("settings_roll_amount", roll_amount)
+    setTranslateWidget("roll_amount_instruction", roll_instruction)
     setTranslateWidget("default_orange", orange_var)
     setTranslateWidget("default_tainted", tainted_var)
     setTranslateWidget("default_chopsticks", chopsticks_var)
@@ -190,7 +212,7 @@ def createSettingsWidgets(settingsTab):
     setTranslateWidget("en_dis_chopsticks", en_dis_chopsticks)
 
     
-    return line_var, orange_var, tainted_var, chopsticks_var, delay_var
+    return line_var, orange_var, tainted_var, chopsticks_var, amount_var, delay_var
 
 
 # widgets for 'Instructions' tab
@@ -206,7 +228,7 @@ def createInstructionsWidgets(instructionsTab):
 def create_widgets(mainTab, settingsTab, instructionsTab, on_start_callback):
     roll_var = createSelectRollType(settingsTab, row=widgets.index("RollType")) 
     log_box, start_btn = createRerollWidgets(mainTab, on_start_callback)
-    line_var, orange_var, tainted_var, chopsticks_var, delay_var = createSettingsWidgets(settingsTab)
+    line_var, orange_var, tainted_var, chopsticks_var, amount_var, delay_var = createSettingsWidgets(settingsTab)
     createInstructionsWidgets(instructionsTab)
 
     return {
@@ -215,6 +237,7 @@ def create_widgets(mainTab, settingsTab, instructionsTab, on_start_callback):
         "orange_var": orange_var,
         "tainted_var": tainted_var,
         "chopsticks_var": chopsticks_var,
+        "amount_var": amount_var,
         "delay_var": delay_var,
         "log_box": log_box,
         "start_button": start_btn

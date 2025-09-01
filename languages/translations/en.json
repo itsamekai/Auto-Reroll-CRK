@@ -17,6 +17,7 @@
     "ElecDMG": "ElecDMG",
     "FireDMG": "FireDMG",
     "EarthDMG": "EarthDMG",
+    "WaterDMG": "WaterDMG",
 
     "settings_roll_type": "Roll Type",
     "settings_roll_count": "No. of Rolls",
@@ -24,13 +25,16 @@
     "settings_orange_only": "Orange Rolls only",
     "settings_tainted_biscuit": "Tainted Biscuit",
     "settings_add_delay": "Add Delay",
+    "settings_roll_amount": "No. of Rolls:",
+    "roll_amount_instruction": "Leave at 0 to roll non-stop.",
 
     "rolls_enabled": "Enabled",
     "rolls_disabled": "Disabled",
 
     "start_button": "Start",
     "credit_name": "Done by: Kai | Discord: @boonkai",
-    "credit_server": "Discord: discord.gg/creamery",
+    "credit_server": "discord.gg/creamery",
+    "support_desc": "test",
 
     "dropdown_select_rolls": "Select Rolls",
 

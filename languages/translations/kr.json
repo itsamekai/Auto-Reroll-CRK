@@ -24,6 +24,8 @@
     "settings_orange_only": "주황 옵션만 킵하기",
     "settings_tainted_biscuit": "비스트킷",
     "settings_add_delay": "지연 시간",
+    "settings_roll_amount": "No. of Rolls:",
+    "roll_amount_instruction": "Leave at 0 to roll non-stop.",
 
     "rolls_enabled": "켜짐",
     "rolls_disabled": "꺼짐",

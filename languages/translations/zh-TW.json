@@ -17,6 +17,7 @@
     "ElecDMG": "電屬性傷害增加",
     "FireDMG": "火屬性傷害增加",
     "EarthDMG": "地屬性傷害增加",
+    "WaterDMG": "WaterDMG",
 
     "settings_roll_type": "脆餅重置類型",
     "settings_roll_count": "重置次數",
@@ -30,7 +31,6 @@
 
     "start_button": "開始",
     "credit_name": "開發人: Kai | Discord: @boonkai",
-    "credit_server": "Discord: discord.gg/creamery",
 
     "dropdown_select_rolls": "選取重置",
 

@@ -17,6 +17,7 @@
     "ElecDMG": "Elektro-SCHDN",
     "FireDMG": "Feuer-SCHDN",
     "EarthDMG": "Erd-SCHDN",
+    "WaterDMG": "WaterDMG",
 
     "settings_roll_type": "Art_der_Bonuseffekte",
     "settings_roll_count": "Anzahl_der_Zurücksetzung",
@@ -30,7 +31,6 @@
 
     "start_button": "Beginnen",
     "credit_name": "codiert von Kai | Discord: @boonkai",
-    "credit_server": "Discord: discord.gg/creamery",
 
     "dropdown_select_rolls": "Bonuseffekte auswählen",
 

@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, font
 from handler.state import *
 import webbrowser
 
@@ -71,21 +71,40 @@ def createRerollWidgets(mainTab, on_start_callback):
     scrollbar.grid(row=widgets.index("log"), column=2, sticky='ns')
 
     creditName = tk.Label(mainTab, text=translator.text("credit_name"), font=("Arial", 11))
-    creditName.grid(row=widgets.index("credit_name"), column=0, columnspan=2, sticky='w', padx=10, pady=5)
+    creditName.grid(row=widgets.index("credit_name"), column=0, columnspan=2, sticky='w', padx=10)
 
-    # serverLabel = tk.Label(mainTab, text="Discord:", font=("Arial", 11)).grid(row=widgets.index("credit_server"), column = 0, sticky='w', padx=10)
-    creditServer = tk.Label(mainTab, text=translator.text("credit_server"), font=("Arial", 11), fg="blue", cursor="heart")
-    creditServer.bind("<Button-1>", lambda e: webbrowser.open_new(url=CONST_DISC_SERVER))
-    creditServer.grid(row=widgets.index("credit_server"), column=0, sticky='w', padx=10, pady=5)
+    # underline for hyperlink
+    normal_font = font.Font(family="Arial", size=11)
+    link_font = font.Font(family="Arial", size=11, underline=1)
+
+    style = ttk.Style()
+
+    style.configure("Normal.TLabel", font=normal_font)
+    style.configure("Link.TLabel", font=link_font, foreground="blue")
+
+    # discord server page
+    frame = ttk.Frame(mainTab)
+    frame.grid(row=widgets.index("credit_server"), column=0, sticky="w", padx=10)
+
+    ttk.Label(frame, text="Discord:", style="Normal.TLabel").pack(side="left")
+
+    creditServer = ttk.Label(frame, text="Creamery", style="Link.TLabel", cursor="hand2")
+    creditServer.pack(side="left")
+    creditServer.bind("<Button-1>", lambda e: webbrowser.open_new(CONST_DISC_SERVER))
     
-    supportName = tk.Label(mainTab, text=translator.text("support_desc"), font=("Arial", 11))
-    supportName.bind("<Button-1>", lambda e: webbrowser.open_new(url=CONST_SUPPORT_LINK))
-    supportName.grid(row=widgets.index("support_name"), column=0, sticky='w', padx=10, pady=5)
+    # support url page
+    support_frame = ttk.Frame(mainTab)
+    support_frame.grid(row=widgets.index("support_name"), column=0, sticky="w", padx=10)
+
+    support_label = ttk.Label(support_frame, text=translator.text("support_desc"), style="Normal.TLabel")
+    support_label.pack(side="left")
+
+    supportName = ttk.Label(support_frame, text="Ko-fi", style="Link.TLabel", cursor="hand2")
+    supportName.pack(side="left")
+    supportName.bind("<Button-1>", lambda e: webbrowser.open_new(CONST_SUPPORT_LINK))
    
     setTranslateWidget("start", start_btn)
     setTranslateWidget("credit_name", creditName)
-    setTranslateWidget("credit_server", creditServer)
-
     return log_box, start_btn
 
 # combine a dropdown and a toggle checkbox to select multiple

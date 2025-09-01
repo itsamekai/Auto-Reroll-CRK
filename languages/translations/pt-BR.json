@@ -17,6 +17,7 @@
     "ElecDMG": "Dano Elétrico",
     "FireDMG": "Dano de Fogo",
     "EarthDMG": "Dano de Terra",
+    "WaterDMG": "WaterDMG",
     
     "settings_roll_type": "Tipo de Giro",
     "settings_roll_count": "N. de Giros",
@@ -30,7 +31,6 @@
 
     "start_button": "Iniciar",
     "credit_name": "Feito por: Kai | Discord: @boonkai",
-    "credit_server": "Discord: discord.gg/creamery", 
 
     "dropdown_select_rolls": "Selecionar Giros",
 

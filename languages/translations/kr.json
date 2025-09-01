@@ -17,6 +17,7 @@
     "ElecDMG": "전기 속성 피해 증가",
     "FireDMG": "불 속성 피해 증가",
     "EarthDMG": "땅 속성 피해 증가",
+    "WaterDMG": "WaterDMG",
     
     "settings_roll_type": "부옵 선택",
     "settings_roll_count":  "부옵 수",    
@@ -32,7 +33,6 @@
 
     "start_button": "시작",
     "credit_name": "개발자: Kai | 디스코드: @boonkai",
-    "credit_server": "디스코드 방: discord.gg/creamery",
 
     "dropdown_select_rolls": "부옵 선택",
 

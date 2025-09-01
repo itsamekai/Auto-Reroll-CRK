@@ -73,5 +73,5 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
             log(translator.text("roll_fail", counter=counter, high_count=high_count, elapsed=elapsed))
             counter+= 1
 
-    log(translator.text("reroll_stop", roll_amount=counter))
+    log(translator.text("reroll_stop", roll_amount=counter-1))
     set_running(False)

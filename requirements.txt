@@ -14,7 +14,9 @@ PyMsgBox==1.0.9
 pyperclip==1.9.0
 PyRect==0.2.0
 PyScreeze==1.0.1
+pytesseract==0.3.13
 pytweening==1.2.0
 pywin32==311
 pywin32-ctypes==0.2.3
 setuptools==80.9.0
+tesserocr

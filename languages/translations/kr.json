@@ -17,7 +17,7 @@
     "ElecDMG": "전기 속성 피해 증가",
     "FireDMG": "불 속성 피해 증가",
     "EarthDMG": "땅 속성 피해 증가",
-    "WaterDMG": "WaterDMG",
+    "WaterDMG": "물 속성 피해 증가",
     
     "settings_roll_type": "부옵 선택",
     "settings_roll_count":  "부옵 수",    
@@ -25,15 +25,15 @@
     "settings_orange_only": "주황 옵션만 킵하기",
     "settings_tainted_biscuit": "비스트킷",
     "settings_add_delay": "지연 시간",
-    "settings_roll_amount": "No. of Rolls:",
-    "roll_amount_instruction": "Leave at 0 to roll non-stop.",
+    "settings_roll_amount": "돌림 횟수",
+    "roll_amount_instruction": "0으로 세팅 될 시 무제한 돌림",
 
     "rolls_enabled": "켜짐",
     "rolls_disabled": "꺼짐",
 
     "start_button": "시작",
     "credit_name": "개발자: Kai | 디스코드: @boonkai",
-    "support_desc": "Support me here by donating:",
+    "support_desc": "매크로가 도움이 됬으면 제게 후원해드리면 감사하겠습니다!",
 
     "dropdown_select_rolls": "부옵 선택",
 
@@ -47,12 +47,12 @@
     "instruction_4": "4. 자동리롤 원하는 대로 설정한다.",
     "instruction_5": "5. Start 버튼으로 시작한다. ESC 버튼으로 멈춘다.",
 
-    "invalid_amount": "Only numbers are accepted for no. of rolls.",
+    "invalid_amount": "재설정 횟수는 숫자만 입력 가능합니다.",
     "non_selected": "선택한 부옵이 없습니다.",
     "tainted_error": "비스트킷 옵션은 3줄 이하만 선택 할수 있습니다",
     "already_running": "프로그램이 이미 실행되고 있습니다.",
     "selected_rolls": "선택한 부옵: {roll_type}",
-    "selected_amount": "Number of rolls: {roll_amount}",
+    "selected_amount": "재설정 횟수: {roll_amount}",
     "crk_not_found": "쿠키런 창이 열려있지 않습니다.",
     "reset_btn_not_found": "재설정 버튼을 찾지 못했습니다.",
     "reset_btn_found": "재설정 버튼 찾았습니다.",
@@ -63,6 +63,6 @@
     "roll_partial_success": "재설정회 #{counter}: {high_count}개 높은 부옵, 하지만 선택된 옵션 아님 - {rolled}. 걸린 시간: {elapsed}.",
     "roll_fail": "재설정 {counter}번째: {high_count} 선택된 부옵. 걸린 시간: {elapsed}.",
 
-    "reroll_stop": "Auto Reroll stopped. {roll_amount} rolls completed.",
+    "reroll_stop": "{roll_amount} 회 재설정 완료, 자동 리롤 중단.",
     "esc_pressed": "ESC 눌림 - 자동리롤 중지하는중."
 }

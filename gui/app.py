@@ -29,7 +29,7 @@ def changeLanguage(lang):
     set_lang(lang_code)
     set_translator_language()
     for k, widget in getTranslateWidget().items():
-        if isinstance(widget, (tk.Label, ttk.Button)):
+        if isinstance(widget, (tk.Label, ttk.Label, ttk.Button)):
             widget.config(text=translator.text(k))
             
         # since we only got comboboxes with disable / enable.
@@ -105,6 +105,9 @@ def createRerollWidgets(mainTab, on_start_callback):
    
     setTranslateWidget("start", start_btn)
     setTranslateWidget("credit_name", creditName)
+    setTranslateWidget("support_desc", support_label)
+
+
     return log_box, start_btn
 
 # combine a dropdown and a toggle checkbox to select multiple

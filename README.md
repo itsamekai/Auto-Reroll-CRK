@@ -36,8 +36,12 @@ Allows you to roll Tainted Beascuits as well.
 Orange rolls only option! 
 It only stops if you roll _n_ amount of orange rolls. Purple roll does not count.
 
-Try not to pick >=3 rolls when using this, as it can be quite unrealistic probability wise. Unless you're using Chopsticks function with this, then it _may not_ be too bad.  
+Try not to pick >=3 rolls when using this, as it can be quite unrealistic probability wise. Unless you're using Chopsticks function with this, then it _may not_ be too bad. 
 
+## Limit No. of Rolls
+You can choose how many times you wish to roll!
+
+If you choose 50, it will stop once it hits 50 rolls. Alternatively you can always press ESC to stop rolling. 
 
 ## Steps to Use
 Different emulators has its own different ways to run. **GPG is the most consistent!**

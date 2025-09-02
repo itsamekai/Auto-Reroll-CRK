@@ -32,13 +32,17 @@ def run_task(roll_type, line_count, orange_bool, tainted_bool, chopsticks_bool, 
         log(translator.text("reset_btn_not_found"))
         set_running(False)
         return  
-    
+
     else:
         log(translator.text("reset_btn_found"))
         log(translator.text("reroll_start")) 
         log(f"Emulator: {emu}")
         log(translator.text("selected_rolls", roll_type=", ".join([translator.text(roll) for roll in roll_type])))
-        log(translator.text("selected_amount", roll_amount=roll_amount))
+
+        # display chosen amt of rolls only if they input 
+        if int(roll_amount) > 0:
+            log(translator.text("selected_amount", roll_amount=roll_amount))
+
         if orange_bool:
             log(translator.text("orange_warning"))
 

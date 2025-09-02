@@ -73,22 +73,13 @@ def createRerollWidgets(mainTab, on_start_callback):
     creditName = tk.Label(mainTab, text=translator.text("credit_name"), font=("Arial", 11))
     creditName.grid(row=widgets.index("credit_name"), column=0, columnspan=2, sticky='w', padx=10)
 
-    # underline for hyperlink
-    normal_font = font.Font(family="Arial", size=11)
-    link_font = font.Font(family="Arial", size=11, underline=1)
-
-    style = ttk.Style()
-
-    style.configure("Normal.TLabel", font=normal_font)
-    style.configure("Link.TLabel", font=link_font, foreground="blue")
-
     # discord server page
     frame = ttk.Frame(mainTab)
     frame.grid(row=widgets.index("credit_server"), column=0, sticky="w", padx=10)
 
-    ttk.Label(frame, text="Discord:", style="Normal.TLabel").pack(side="left")
+    ttk.Label(frame, text="Discord:", font="Arial 11").pack(side="left")
 
-    creditServer = ttk.Label(frame, text="Creamery", style="Link.TLabel", cursor="hand2")
+    creditServer = ttk.Label(frame, text="Creamery", font="Arial 11 underline", foreground="blue", cursor="hand2")
     creditServer.pack(side="left")
     creditServer.bind("<Button-1>", lambda e: webbrowser.open_new(CONST_DISC_SERVER))
     
@@ -96,10 +87,10 @@ def createRerollWidgets(mainTab, on_start_callback):
     support_frame = ttk.Frame(mainTab)
     support_frame.grid(row=widgets.index("support_name"), column=0, sticky="w", padx=10)
 
-    support_label = ttk.Label(support_frame, text=translator.text("support_desc"), style="Normal.TLabel")
+    support_label = ttk.Label(support_frame, text=translator.text("support_desc"), font="Arial 11")
     support_label.pack(side="left")
 
-    supportName = ttk.Label(support_frame, text="Ko-fi", style="Link.TLabel", cursor="hand2")
+    supportName = ttk.Label(support_frame, text="Ko-fi", font="Arial 11 underline", foreground="blue", cursor="hand2")
     supportName.pack(side="left")
     supportName.bind("<Button-1>", lambda e: webbrowser.open_new(CONST_SUPPORT_LINK))
    

@@ -17,7 +17,7 @@
     "ElecDMG": "电属性伤害增加",
     "FireDMG": "火属性伤害增加",
     "EarthDMG": "地属性伤害增加",
-    "WaterDMG": "WaterDMG",
+    "WaterDMG": "水属性伤害增加",
 
     "settings_roll_type": "脆饼重置类型",
     "settings_roll_count": "重置次数",
@@ -25,15 +25,15 @@
     "settings_orange_only": "只要橘色数值",
     "settings_tainted_biscuit": "野兽脆饼",
     "settings_add_delay": "增加读取延迟",
-    "settings_roll_amount": "No. of Rolls:",
-    "roll_amount_instruction": "Leave at 0 to roll non-stop.",
+    "settings_roll_amount": "设定重置次数:",
+    "roll_amount_instruction": "设置为0即无限重置次数",
 
     "rolls_enabled": "启用",
     "rolls_disabled": "停用",
 
     "start_button": "开始",
     "credit_name": "开发人: Kai | Discord: @boonkai",
-    "support_desc": "If the Auto Reroll helped, donations are appreciated!",
+    "support_desc": "如果自动重置有帮助, 我会非常感谢您的贊助!",
 
     "dropdown_select_rolls": "选取重置",
 
@@ -47,12 +47,12 @@
     "instruction_4": "4. 在设置选项调整设定参数",
     "instruction_5": "5. 开始按钮自动重置脆饼. ESC按键停止.",
 
-    "invalid_amount": "Only numbers are accepted for no. of rolls.",
+    "invalid_amount": "设定重置次数只有数字是可接受的",
     "non_selected": "无重置次数选取.",
     "tainted_error": "野兽脆饼只支援 3以下的行数.",
     "already_running": "已有排程执行中.",
     "selected_rolls": "选取重置: {roll_type}",
-    "selected_amount": "Number of rolls: {roll_amount}",
+    "selected_amount": "总共重置次数: {roll_amount}",
     "crk_not_found": "未找到姜饼人王国视窗.",
     "reset_btn_not_found": "未发现重置按钮. 请检查模拟器.",
     "reset_btn_found": "发现重置按钮.",
@@ -63,6 +63,6 @@
     "roll_partial_success": " {counter}: {high_count} 高数值但错误的重置属性 - {rolled}. 花费时间 {elapsed}.",
     "roll_fail": "重置 {counter}: {high_count} 高数值. 花费时间{elapsed}s .",
 
-    "reroll_stop": "Auto Reroll stopped. {roll_amount} rolls completed.",
+    "reroll_stop": "自动重置停止. {roll_amount} 次重置完成.",
     "esc_pressed": "按下ESC - 停止排程."
 }

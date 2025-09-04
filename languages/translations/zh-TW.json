@@ -17,7 +17,7 @@
     "ElecDMG": "電屬性傷害增加",
     "FireDMG": "火屬性傷害增加",
     "EarthDMG": "地屬性傷害增加",
-    "WaterDMG": "WaterDMG",
+    "WaterDMG": "水屬性傷害增加",
 
     "settings_roll_type": "脆餅重置類型",
     "settings_roll_count": "重置次數",
@@ -25,15 +25,15 @@
     "settings_orange_only": "只要橘色數值",
     "settings_tainted_biscuit": "野獸脆餅",
     "settings_add_delay": "增加讀取延遲",
-    "settings_roll_amount": "No. of Rolls:",
-    "roll_amount_instruction": "Leave at 0 to roll non-stop.",
+    "settings_roll_amount": "設定重置次數:",
+    "roll_amount_instruction": "設置為0即無限重置次數",
 
     "rolls_enabled": "啟用",
     "rolls_disabled": "停用",
 
     "start_button": "開始",
     "credit_name": "開發人: Kai | Discord: @boonkai",
-    "support_desc": "If the Auto Reroll helped, donations are appreciated!",
+    "support_desc": "如果自動重置有幫助, 我會非常感謝您的贊助!",
 
     "dropdown_select_rolls": "選取重置",
 
@@ -47,12 +47,12 @@
     "instruction_4": "4. 在設置選項調整設定參數",
     "instruction_5": "5. 開始按鈕自動重置脆餅. ESC按鍵停止.",
 
-    "invalid_amount": "Only numbers are accepted for no. of rolls.",
+    "invalid_amount": "設定重置次數只有數字是可接受的",
     "non_selected": "無重置次數選取.",
     "tainted_error": "野獸脆餅只支援 3以下的行數.",
     "already_running": "已有排程執行中.",
     "selected_rolls": "選取重置: {roll_type}",
-    "selected_amount": "Number of rolls: {roll_amount}",
+    "selected_amount": "總共重置次數: {roll_amount}",
     "crk_not_found": "未找到薑餅人王國視窗.",
     "reset_btn_not_found": "未發現重置按鈕. 請檢查模擬器.",
     "reset_btn_found": "發現重置按鈕.",
@@ -63,6 +63,6 @@
     "roll_partial_success": " {counter}: {high_count} 高數值但錯誤的重置屬性 - {rolled}. 花費時間 {elapsed}.",
     "roll_fail": "重置 {counter}: {high_count} 高數值. 花費時間{elapsed}s .",
 
-    "reroll_stop": "Auto Reroll stopped. {roll_amount} rolls completed.",
+    "reroll_stop": "自動重置停止. {roll_amount} 次重置完成.",
     "esc_pressed": "按下ESC - 停止排程."
 }

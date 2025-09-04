@@ -17,7 +17,7 @@
     "ElecDMG": "เพิ่มความเสียหายธาตุไฟฟ้า",
     "FireDMG": "เพิ่มความเสียหายธาตุไฟ",
     "EarthDMG": "เพิ่มความเสียหายธาตุดิน",
-    "WaterDMG": "WaterDMG",
+    "WaterDMG": "เพิ่มความเสียหายธาตุน้ำ",
 
     "settings_roll_type": "ค่าสเตตัสที่ต้องการ", 
     "settings_roll_count": "ครั้งที่ : ",
@@ -25,15 +25,15 @@
     "settings_orange_only": "ช่องสีส้มเท่านั้น",
     "settings_tainted_biscuit": "บิสกิตบีสยีสต์",
     "settings_add_delay": "เพิ่มระยะเวลา",
-    "settings_roll_amount": "No. of Rolls:",
-    "roll_amount_instruction": "Leave at 0 to roll non-stop.",
+    "settings_roll_amount": "Roll ครั้งที่.",
+    "roll_amount_instruction": "ตั้งค่าเป็น 0 เพื่อให้รันตลอดเวลา",
 
     "rolls_enabled": "เปิดการใช้งาน",
     "rolls_disabled": "ปิดการใช้งาน",
 
     "start_button": "เริ่มการทำงาน",
     "credit_name": "จัดทำโดย: Kai | Discord: @boonkai",
-    "support_desc": "If the Auto Reroll helped, donations are appreciated!",
+    "support_desc": "ถ้าคิดว่าโปรแกรม AutoReroll ช่วยคุณได้สามารถสนับสนุนผมได้ครับ",
 
     "dropdown_select_rolls": "เลือก roll", 
 
@@ -47,12 +47,12 @@
     "instruction_4": "4. ปรับแต่งการตั้งค่าในแถบการตั้งค่า",
     "instruction_5": "5. กดปุ่ม เริ่มการทำงานเพื่อใช้งาน. กดปุ่ม ESC เพื่อหยุดการทำงาน.",
     
-    "invalid_amount": "Only numbers are accepted for no. of rolls.",
+    "invalid_amount": "ตั้งค่าได้แค่ตัวเลขเท่านั้น !!",
     "non_selected": "ไม่มีการเลือก.",
     "tainted_error": "บิสกิตแบบบีสเรดต์ รองรับแค่ 3 ช่องเท่านั้น.",
     "already_running": "โปรแกรมกำลังทำงาน.",
     "selected_rolls": "เลือกค่า: {roll_type}",
-    "selected_amount": "Number of rolls: {roll_amount}",
+    "selected_amount": "จำนวนครั้งในการรี: {roll_amount}",
     "crk_not_found": "ไม่พบหน้าต่างเกม CRK.",
     "reset_btn_not_found": "ปุ่ม RESET ตรวจไม่พบ , ไม่รองรับการทำงาน ผ่านโปรแกรมจำลอง .",
     "reset_btn_found": "ตรวจพบปุ่ม reset.",
@@ -63,6 +63,6 @@
     "roll_partial_success": "Roll {counter}: {high_count} ค่าสูงแต่ไม่ใช่ค่าที่ทำการเลือก - {rolled}. เวลาที่ใช้ทั้งหมด {elapsed}.",
     "roll_fail": "Roll {counter}: {high_count} ค่าสูง. เวลาที่ใช้ทั้งหมด {elapsed}s .",
 
-    "reroll_stop": "Auto Reroll stopped. {roll_amount} rolls completed.",
+    "reroll_stop": "Auto Reroll หยุด. {roll_amount} rolls เสร็จสิ้น.",
     "esc_pressed": "กดปุ่ม ESC - เมื่อต้องการหยุด."
 }
